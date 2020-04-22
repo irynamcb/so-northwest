@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, Link, Switch, HashRouter } from "react-router-dom";
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavbarContainer from '../components/navbar/navbar_container';
 import SignUpFormContainer from '../components/session_form/signup_form_container';
+import LogInFormContainer  from '../components/session_form/login_form_container';
 
 const App = () => (
     <div>
