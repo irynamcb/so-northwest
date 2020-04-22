@@ -1,0 +1,23 @@
+.navbar {
+    width: 100%;
+    height: 20vh;
+    background-color: #222;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+
+.header-group {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 25px;
+}
+
+.signup-btn:hover {
+    color: green;
+    cursor: pointer;
+}

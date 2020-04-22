@@ -11,7 +11,7 @@ export default class Navbar extends React.Component {
     sessionLinks() {
         return (
             <div className="navbar">
-                <nav className="login-signup">
+                <nav className="header-group">
                     <Link to="/" className="home">So_Northwest</Link>
                     <div className="nav-content">
                         <div className="signup-button">
@@ -29,7 +29,6 @@ export default class Navbar extends React.Component {
             <div className="navbar">
                 <div className="header-group">
                     <Link to="/" className="home">So_Northwest</Link>
-                    <SearchContainer />
                     <div className="nav-content">
                         <div className="header-name"><Link to='/'>Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}!</Link></div>
                         <div className="nav">

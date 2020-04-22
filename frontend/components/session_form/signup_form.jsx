@@ -80,25 +80,25 @@ class SignupForm extends React.Component {
                             <input type="text"
                                 value={this.state.email}
                                 onChange={this.update('email')}
-                                className="signup-input-2"
+                                className="signup-input-1"
                             />
                         </label>
                         <br />
-                        <label>Password
+                        <label>Password *
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className="signup-input-2"
+                                className="signup-input-1"
                                 placeholder="6 - 16 characters"
                             />
                         </label>
                         <br />
 
-                        <label className="city">City
+                        <label>City
                             <input type="text"
                                 value={this.state.city}
                                 onChange={this.update('city')}
-                                className="signup-input-3"
+                                className="signup-input-1"
                             />
                         </label>
                         <br />
