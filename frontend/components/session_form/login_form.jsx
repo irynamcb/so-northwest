@@ -54,22 +54,22 @@ class LoginForm extends React.Component {
                             {this.renderErrors()}
                         </div>
                         : ""}
-                    <label>
+                    <label>Email
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
-                            placeholder="Email"
                             className="login-input"
                         />
                     </label>
-                    <label>
+                    <br />
+                    <label>Password
                         <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            placeholder="Password"
                             className="login-input"
                         />
                     </label>
+                    <br />
                     <input className="login-submit" type="submit" value="Sign in" />
                     <br />
                     <input className="create-account" type="submit" value="Create an account" onClick={() => this.signUp()} />

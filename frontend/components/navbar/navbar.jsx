@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faFacebookF, faClock, faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default class Navbar extends React.Component {
@@ -17,7 +15,7 @@ export default class Navbar extends React.Component {
                     <Link to="/" className="home">So_Northwest</Link>
                     <div className="nav-content">
                         <div className="signup-button">
-                            <Link to="/signup" className="signup-btn">Sign In</Link>
+                            <Link to="/login" className="signup-btn">Sign In</Link>
                         </div>
                     </div>
                 </nav>
@@ -47,7 +45,7 @@ export default class Navbar extends React.Component {
         if (this.props.currentUser) {
             return this.personalGreeting();
         }  else {
-            return this.sessionLink();
+            return this.sessionLinks();
         }
     }
 };
