@@ -1,4 +1,4 @@
-.signup-form-container {
+.signup-form-container, .login-form-container {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -21,7 +21,7 @@
     margin-bottom: 10px;
 }
 
-.signup-input-1 {
+.signup-input-1, .login-input {
 
     background-color: #fff;
     background-image: none;
@@ -38,7 +38,7 @@
     margin-top: 4px;
 }
 
-.signup-submit {
+.signup-submit, .login-submit {
     color: #fff;
     background-color: #426c90;
     border-color: #426c90;
@@ -60,4 +60,29 @@
     vertical-align: middle;
     user-select: none;
     white-space: nowrap;
+}
+
+.create-account {
+    color: #2e2e2e;
+    background-color: #fff;
+    border-color: #c5c5c5;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    outline: 0;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 16px;
+    padding: 16px 32px;
+    border: 1px solid #c5c5c5;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    user-select: none;
+    white-space: nowrap;
+    margin-top: 14px;
 }
