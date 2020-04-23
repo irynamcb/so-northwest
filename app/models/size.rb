@@ -12,4 +12,5 @@ belongs_to :color,
 primary_key: :id,
 foreign_key: :color_id,
 class_name: :Color
+
 end
