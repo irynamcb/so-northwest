@@ -1,5 +1,6 @@
 class Color < ApplicationRecord
-    validates :product_id, :color, precense: true
+    validates :color, precense: true
+    validates :count, numericality: true
 
 has_many :sizes,
 primary_key: :id,
