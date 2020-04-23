@@ -5,6 +5,7 @@ import NavbarContainer from '../components/navbar/navbar_container';
 import SignUpFormContainer from '../components/session_form/signup_form_container';
 import LogInFormContainer  from '../components/session_form/login_form_container';
 import About from '../components/about/about';
+import Footer from '../components/footer/footer';
 
 const App = () => (
     <div>
@@ -17,7 +18,7 @@ const App = () => (
             <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
         </Switch>
         <footer>
-            {/* Footer component goes here */}
+            {/* <Footer /> */}
         </footer>
     </div>
 );
