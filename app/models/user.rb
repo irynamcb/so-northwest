@@ -7,6 +7,11 @@ attr_reader :password
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Review
+
 after_initialize :ensure_session_token
 
 
