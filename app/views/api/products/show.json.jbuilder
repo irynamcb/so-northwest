@@ -5,7 +5,7 @@ json.products do
 end
 
 json.sizes do 
-    @producs.sizes.each do |size|
+    @product.sizes.each do |size|
         json.set size.id do
             json.partial! 'api/sizes/size', size: size
         end
@@ -13,7 +13,7 @@ json.sizes do
 end
 
 json.colors do 
-    @producs.colors.each do |colors|
+    @product.colors.each do |colors|
         json.set color.id do
             json.partial! 'api/colors/color', color: color
         end
@@ -21,7 +21,7 @@ json.colors do
 end
 
 json.tags do 
-    @producs.tags.each do |tag|
+    @product.tags.each do |tag|
         json.set tag.id do
             json.partial! 'api/tags/tag', tag: tag
         end
@@ -29,7 +29,7 @@ json.tags do
 end
 
 json.reviews do 
-    @producs.reviews.each do |review|
+    @product.reviews.each do |review|
         json.set review.id do
             json.partial! 'api/reviews/review', review: review
         end
