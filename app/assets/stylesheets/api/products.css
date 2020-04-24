@@ -1,0 +1,53 @@
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.single-product h1 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: Graphik,Roboto,Helvetica,Arial,sans-serif;
+    line-height: 1.333;
+}
+
+.single-product h1:hover, h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.single-product h3:hover, h4:hover {
+    cursor: pointer;
+}
+
+.single-product h2 {
+
+    font-weight: 400;
+    font-family: Graphik,Roboto,Helvetica,Arial,sans-serif;
+    font-size: inherit;
+    line-height: 1.333;
+}
+
+.single-product h3 {
+    color: #c00;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-size: inherit;
+    margin-top: 5px;
+
+}
+
+.single-product h4 {
+    color: #767676;
+    margin-bottom: .4rem;
+    font-size: 0.8rem;
+    margin-top: .4rem;
+
+}

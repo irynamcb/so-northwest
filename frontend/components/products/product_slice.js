@@ -17,9 +17,9 @@ const productSlice = createSlice({
             // debugger
             state.products = Object.values(payload)
         }
-        receiveProduct: (state, {payload}) => {
+        // receiveProduct: (state, {payload}) => {
 
-        }
+        // }
     }
 })
 

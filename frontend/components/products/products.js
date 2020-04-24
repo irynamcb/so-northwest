@@ -18,10 +18,10 @@ function Products() {
 
         <div className="products">
             <h1>Products</h1>
-            <ul>
+            <div className="product-list">
                 {products.map(product => 
                 <li key={product.id}><SingleProduct product={product}/></li>)}
-            </ul>
+            </div>
         </div>
     )
 
