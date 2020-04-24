@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTree} from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Navbar extends React.Component {
@@ -9,10 +11,11 @@ export default class Navbar extends React.Component {
     }
 
     sessionLinks() {
+        const icon = <FontAwesomeIcon icon={faTree} size="2x" border pull="left" inverse transform="shrink-4" spin/>
         return (
             <div className="navbar">
                 <nav className="header-group">
-                    <Link to="/" className="home">So_Northwest</Link>
+                    <Link to="/" className="home">{icon}&nbsp;So_Northwest</Link>
                     <div className="nav-content">
                         <div className="signup-button">
                             <Link to="/login" className="signup-btn">Sign In</Link>
@@ -28,7 +31,7 @@ export default class Navbar extends React.Component {
         return (
             <div className="navbar">
                 <div className="header-group">
-                    <Link to="/" className="home">So_Northwest</Link>
+                    <Link to="/" className="home">{icon}So_Northwest</Link>
                     <div className="nav-content">
                         <div className="header-name"><Link to='/'>Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}!</Link></div>
                         <div><Link to="/" className="home">Cart</Link></div>

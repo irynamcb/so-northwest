@@ -18,7 +18,7 @@ if (props === undefined) {
 
 return (
     <div className="single-product" onClick={handleClick}>
-        <h4>Multiple colors availiable</h4>
+        <p>Multiple colors availiable</p>
         <h1><Link to={`/products/${product.id}`}>{product.description}</Link></h1>
         <h2>{product.details}</h2>
         <h3>${product.price}.00</h3>

@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 
-.single-product h3:hover, h4:hover {
+.single-product h3:hover, p:hover {
     cursor: pointer;
 }
 
@@ -44,7 +44,7 @@
 
 }
 
-.single-product h4 {
+.single-product p {
     color: #767676;
     margin-bottom: .4rem;
     font-size: 0.8rem;
