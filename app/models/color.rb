@@ -1,5 +1,5 @@
 class Color < ApplicationRecord
-    validates :color, precense: true
+    validates :color, presence: true
     validates :count, numericality: true
 
 has_many :sizes,
