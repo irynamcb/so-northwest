@@ -29,6 +29,8 @@ const productSlice = createSlice({
             }
             // debugger
             state.sizes = Object.assign({}, state.sizes, payload.sizes)
+            state.colors = Object.assign({}, state.colors, payload.colors)
+            state.reviews = Object.assign({}, state.reviews, payload.reviews)
         }
     }
 })
