@@ -22,9 +22,13 @@
 }
 
 .review-info {
+    
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 40%;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .review h3 {

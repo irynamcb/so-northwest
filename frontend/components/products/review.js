@@ -20,10 +20,13 @@ function Review(props) {
     return (
         <div className="review" >
             <div className="review-info">
-                {/* <h2>{review.star}</h2> */}
-                <StarRatings rating={review.star}/>
+                <StarRatings rating={review.star}
+                starRatedColor="darkblue"
+                starDimension="25px"
+                starSpacing="1px"
+                />
+                <h4>{review.author}</h4>
                 <h3>{createdAt}</h3>
-                <h4>{review.authorId}</h4>
             </div>
             <p>{review.body}</p>
         </div>
