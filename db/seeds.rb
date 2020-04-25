@@ -17,22 +17,23 @@ p1 = Product.create(price: 20, description: "Skirt", details: "Good for everythi
 p2 = Product.create(price: 10, description: "Shoes", details: "Happy hiking")
 p3 = Product.create(price: 15, description: "Pants", details: "Party in your pants")
 
-Color.destroy_all
-c1 = Color.create(count: 20, color: "blue")
-c2 = Color.create(count: 10, color: "red")
-c3 = Color.create(count: 5, color: "black")
 
 Size.destroy_all
-s1 = Size.create(product_id: p1.id, size: "S", color_id: c1.id)
-s2 = Size.create(product_id: p1.id, size: "M", color_id: c1.id)
-s3 = Size.create(product_id: p1.id, size: "L", color_id: c1.id)
+s1 = Size.create(product_id: p1.id, size: "S")
+s2 = Size.create(product_id: p1.id, size: "M")
+s3 = Size.create(product_id: p1.id, size: "L")
 
-s4 = Size.create(product_id: p2.id, size: "XS", color_id: c2.id)
-s5 = Size.create(product_id: p2.id, size: "L", color_id: c2.id)
+s4 = Size.create(product_id: p2.id, size: "XS")
+s5 = Size.create(product_id: p2.id, size: "L")
 
-s6 = Size.create(product_id: p3.id, size: "S", color_id: c3.id)
-s7 = Size.create(product_id: p3.id, size: "M", color_id: c3.id)
-s8 = Size.create(product_id: p3.id, size: "L", color_id: c3.id)
+s6 = Size.create(product_id: p3.id, size: "S")
+s7 = Size.create(product_id: p3.id, size: "M")
+s8 = Size.create(product_id: p3.id, size: "L")
+
+Color.destroy_all
+c1 = Color.create(count: 20, color: "blue", size_id: s1.id)
+c2 = Color.create(count: 10, color: "red", size_id: s1.id)
+c3 = Color.create(count: 5, color: "black", size_id: s1.id)
 
 Tag.destroy_all
 t1 = Tag.create(tag: "awesome")

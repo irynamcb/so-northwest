@@ -9,7 +9,7 @@ class_name: :Size
 
 has_many :colors,
 through: :sizes,
-source: :color
+source: :colors
 
 has_many :reviews,
 primary_key: :id,
