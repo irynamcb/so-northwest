@@ -16,10 +16,19 @@ const productSlice = createSlice({
         receiveAllProducts: (state, {payload}) => {
             // debugger
             state.products = Object.values(payload)
+        },
+        receiveProduct: (state, {payload}) => {
+            // debugger
+            let product = Object.values(payload.products)[0]
+            let i = state.products.findIndex(p => p.id === product.id)
+            if (i === -1) {
+                // debugger
+                state.products.push(product)
+            } else  {
+                state.products[i] = product
+            }
+            // state.colors = Object.assign({}, payload.product.color, state.colors)
         }
-        // receiveProduct: (state, {payload}) => {
-
-        // }
     }
 })
 
@@ -29,6 +38,9 @@ export const {
 } = productSlice.actions
 
 export const productsSelector = state => state.entities.products
+
+// export const productSelector = state => state.entities.product
+
 export default productSlice.reducer 
 
 export function fetchProducts() {
