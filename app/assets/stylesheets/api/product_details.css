@@ -26,6 +26,7 @@
     line-height: 1.4;
     color: #292929;
     font-size: 2.0rem;
+    margin-bottom: 10px;
 }
 
 .spd h1:hover, .spd h2:hover {
@@ -47,4 +48,17 @@
     height: 6vh;
     width: 8vw;
     text-align: center;
+    color: gray;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.black {
+    background-color: black;
 }

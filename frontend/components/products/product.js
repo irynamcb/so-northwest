@@ -28,7 +28,7 @@ function Product() {
     }
     let product = products[productIdx];
     // debugger
-    let colorNames = Array.from(new Set (product.sizes.map(sizeId => sizes[sizeId].colors.map(colorId => colors[colorId].color))));
+    let colorNames = product.sizes.map(sizeId => sizes[sizeId].colors.map(colorId => colors[colorId].color))[0];
 
     return (
 
@@ -46,9 +46,12 @@ function Product() {
                 Color:
                 <span className="color">
                 {
-                    colorNames.map((name, idx) => <button key={idx}>{name}</button>)
+                    colorNames.map((name, idx) => <button key={idx} className={name}>{name}</button>)
                 }
                 </span>
+            </div>
+            <div className="reviews">
+                
             </div>
         </div>
     )
