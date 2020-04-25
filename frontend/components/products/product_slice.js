@@ -27,7 +27,10 @@ const productSlice = createSlice({
             } else  {
                 state.products[i] = product
             }
-            // state.colors = Object.assign({}, payload.product.color, state.colors)
+            // debugger
+            // let arrSizes = Object.values(payload.sizes)
+            // let productSizes = arrSizes.filter(size => post.authorId === userId);
+            state.sizes = Object.assign({}, payload.products.sizes, payload.sizes)
         }
     }
 })
@@ -38,7 +41,6 @@ export const {
 } = productSlice.actions
 
 export const productsSelector = state => state.entities.products
-
 export default productSlice.reducer 
 
 export function fetchProducts() {

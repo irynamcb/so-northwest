@@ -6,16 +6,13 @@ import {useParams} from 'react-router-dom';
 function Product() {
     const dispatch = useDispatch();
 
-    // let userId = Number(ownProps.match.params.userId);
     let {productId} = useParams();
-
 
     useEffect(() => {
         dispatch(fetchProduct(productId));
     }, [dispatch]);
 
     // similar to mapStateToProps
-    
     let products = useSelector(state => state.entities.products.products);
     let productIdx = products.findIndex(product => product.id === Number(productId));
     if (productIdx === -1) {
@@ -24,17 +21,15 @@ function Product() {
     let product = products[productIdx];
 
 
-    
     return (
 
         <div className="">
-            <h1>Here is a product:</h1>
+            <h1>Check out this awesome product:</h1>
             <div className="">
                 <p>{product.description}</p>
                 <p>{product.price}</p>
-                {/* <p>{product.colors}</p> */}
-                {/* <p>{product.sizes}</p>
-                <p>{product.reviews}</p> */}
+                {product.sizes}
+                { product.sizes.map(size => <p key={size.id}>{size.size}</p>) }
             </div>
         </div>
     )
