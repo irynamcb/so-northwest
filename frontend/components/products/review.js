@@ -10,10 +10,17 @@ function Review(props) {
         return (<div></div>)
     }
 
+    let cdate = new Date(review.createdAt);
+    let createdAt = new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "long"
+    }).format(cdate);
+
     return (
-        <div className="" >
+        <div className="review" >
             <h2>{review.star}</h2>
-            <h3>{review.authorId}</h3>
+            <h3>{createdAt}</h3>
+            <h4>{review.authorId}</h4>
             <p>{review.body}</p>
         </div>
     )
