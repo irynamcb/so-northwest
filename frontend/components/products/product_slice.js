@@ -39,8 +39,6 @@ export const {
 
 export const productsSelector = state => state.entities.products
 
-// export const productSelector = state => state.entities.product
-
 export default productSlice.reducer 
 
 export function fetchProducts() {
