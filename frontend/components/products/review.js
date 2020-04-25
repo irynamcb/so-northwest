@@ -12,7 +12,6 @@ function Review(props) {
 
     return (
         <div className="" >
-            <h1>Reviews</h1>
             <h2>{review.star}</h2>
             <h3>{review.authorId}</h3>
             <p>{review.body}</p>

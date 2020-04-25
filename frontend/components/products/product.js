@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchProduct } from './product_slice';
 import {useParams} from 'react-router-dom';
+import Review from './review';
 
 function Product() {
     const dispatch = useDispatch();
@@ -50,8 +51,11 @@ function Product() {
                 }
                 </span>
             </div>
+            Reviews:
             <div className="reviews">
-                
+                {
+                    product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx}/>)
+                }
             </div>
         </div>
     )
