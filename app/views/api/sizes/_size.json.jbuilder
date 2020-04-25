@@ -1,3 +1,3 @@
-json.extract! size, :id, :product_id, :size, :color_id
+json.extract! size, :id, :product_id, :size
 
-# json.colors size.colors.map(&:id)
+json.colors size.colors.map(&:id)
