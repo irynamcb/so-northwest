@@ -14,23 +14,27 @@ function Product() {
     }, [dispatch]);
 
     // similar to mapStateToProps
-    const {products, sizes, colors, reviews} = useSelector(state => {
+    const {product, sizes, colors, reviews} = useSelector(state => {
 
+        let productIdx = state.entities.products.products.findIndex(product => product.id === Number(productId));
+        let product = state.entities.products.products[productIdx]
         return {
-            products: state.entities.products.products,
+            product: product,
             sizes: state.entities.products.sizes,
             colors: state.entities.products.colors,
             reviews: state.entities.products.reviews
     }});
 
-    let productIdx = products.findIndex(product => product.id === Number(productId));
-    if (productIdx === -1) {
+    if (product === undefined) {
         return (<div></div>)
     }
-    let product = products[productIdx];
-    // debugger
-    let colorNames = product.sizes.map(sizeId => sizes[sizeId].colors.map(colorId => colors[colorId].color))[0];
-
+  
+    let colorNames = new Set();
+    product.sizes.map(sizeId => {
+        if (sizes[sizeId] !== undefined)
+        sizes[sizeId].colors.map(colorId => colorNames.add(colors[colorId].color))
+    });
+// debugger
     return (
 
         <div className="single-product-details">
@@ -41,13 +45,17 @@ function Product() {
                 Size:
                 <span className="size">
                 {
-                    product.sizes.map(sizeId => <button key={sizeId}>{sizes[sizeId].size}</button>)
-                }
+                    product.sizes.map(sizeId => {
+                    if (sizes[sizeId] !== undefined) {
+                        return (
+                            <button key={sizeId}>{sizes[sizeId].size}</button>
+                        )} 
+                })}
                 </span>
                 Color:
                 <span className="color">
                 {
-                    colorNames.map((name, idx) => <button key={idx} className={name}>{name}</button>)
+                    Array.from(colorNames).map((name, idx) => <button key={idx} className={name}>{name}</button>)
                 }
                 </span>
             </div>

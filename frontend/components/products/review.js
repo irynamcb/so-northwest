@@ -6,7 +6,7 @@ function Review(props) {
 
     const review = props.review
  
-    if (props === undefined) {
+    if (review === undefined) {
         return (<div></div>)
     }
 
