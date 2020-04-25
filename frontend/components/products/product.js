@@ -49,8 +49,8 @@ function Product() {
                     if (sizes[sizeId] !== undefined) {
                         return (
                             <button key={sizeId}>{sizes[sizeId].size}</button>
-                        )} 
-                })}
+                        )}})
+                }
                 </span>
                 Color:
                 <span className="color">
