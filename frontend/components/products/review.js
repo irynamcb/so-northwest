@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import StarRatings from 'react-star-ratings';
 
 
 function Review(props) {
@@ -19,7 +20,8 @@ function Review(props) {
     return (
         <div className="review" >
             <div className="review-info">
-                <h2>{review.star}</h2>
+                {/* <h2>{review.star}</h2> */}
+                <StarRatings rating={review.star}/>
                 <h3>{createdAt}</h3>
                 <h4>{review.authorId}</h4>
             </div>
