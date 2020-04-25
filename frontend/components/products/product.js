@@ -13,13 +13,18 @@ function Product() {
     }, [dispatch]);
 
     // similar to mapStateToProps
-    let products = useSelector(state => state.entities.products.products);
+    const {products, sizes} = useSelector(state => {
+        return {
+            products: state.entities.products.products,
+            sizes: state.entities.products.sizes
+    }});
+
     let productIdx = products.findIndex(product => product.id === Number(productId));
     if (productIdx === -1) {
         return (<div></div>)
     }
     let product = products[productIdx];
-
+    
 
     return (
 
@@ -28,8 +33,9 @@ function Product() {
             <div className="">
                 <p>{product.description}</p>
                 <p>{product.price}</p>
-                {product.sizes}
-                { product.sizes.map(size => <p key={size.id}>{size.size}</p>) }
+                {
+                    product.sizes.map(sizeId => <p key={sizeId}>{sizes[sizeId].size}</p>)
+                }
             </div>
         </div>
     )

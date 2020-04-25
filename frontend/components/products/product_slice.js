@@ -28,9 +28,7 @@ const productSlice = createSlice({
                 state.products[i] = product
             }
             // debugger
-            // let arrSizes = Object.values(payload.sizes)
-            // let productSizes = arrSizes.filter(size => post.authorId === userId);
-            state.sizes = Object.assign({}, payload.products.sizes, payload.sizes)
+            state.sizes = Object.assign({}, state.sizes, payload.sizes)
         }
     }
 })
