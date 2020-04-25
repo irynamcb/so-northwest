@@ -18,9 +18,11 @@ function Review(props) {
 
     return (
         <div className="review" >
-            <h2>{review.star}</h2>
-            <h3>{createdAt}</h3>
-            <h4>{review.authorId}</h4>
+            <div className="review-info">
+                <h2>{review.star}</h2>
+                <h3>{createdAt}</h3>
+                <h4>{review.authorId}</h4>
+            </div>
             <p>{review.body}</p>
         </div>
     )

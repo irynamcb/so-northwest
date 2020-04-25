@@ -1,10 +1,31 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+
 .review p {
     color: #292929;
-    font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     text-decoration: none;
     text-transform: none;
     line-height: 26px;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.review h3 {
+    color: rgb(41, 41, 41);
+    font-size: 14px;
+    font-weight: 400;
 }
