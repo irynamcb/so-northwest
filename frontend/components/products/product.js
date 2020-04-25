@@ -13,10 +13,13 @@ function Product() {
     }, [dispatch]);
 
     // similar to mapStateToProps
-    const {products, sizes} = useSelector(state => {
+    const {products, sizes, colors, reviews} = useSelector(state => {
+
         return {
             products: state.entities.products.products,
-            sizes: state.entities.products.sizes
+            sizes: state.entities.products.sizes,
+            colors: state.entities.products.colors,
+            reviews: state.entities.products.reviews
     }});
 
     let productIdx = products.findIndex(product => product.id === Number(productId));
@@ -24,18 +27,28 @@ function Product() {
         return (<div></div>)
     }
     let product = products[productIdx];
-    
+    // debugger
+    let colorNames = Array.from(new Set (product.sizes.map(sizeId => sizes[sizeId].colors.map(colorId => colors[colorId].color))));
 
     return (
 
-        <div className="">
+        <div className="single-product-details">
             <h1>Check out this awesome product:</h1>
-            <div className="">
-                <p>{product.description}</p>
-                <p>{product.price}</p>
+            <div className="spd">
+                <h1>{product.description}</h1>
+                <h2>${product.price}.00</h2>
+                Size:
+                <span className="size">
                 {
-                    product.sizes.map(sizeId => <p key={sizeId}>{sizes[sizeId].size}</p>)
+                    product.sizes.map(sizeId => <button key={sizeId}>{sizes[sizeId].size}</button>)
                 }
+                </span>
+                Color:
+                <span className="color">
+                {
+                    colorNames.map((name, idx) => <button key={idx}>{name}</button>)
+                }
+                </span>
             </div>
         </div>
     )
