@@ -29,11 +29,11 @@ function Review(props) {
                 />
                 <h4>{review.author}</h4>
                 <h3>{createdAt}</h3>
-                {
-                    (currentUserId === review.authorId) && <button onClick={() => dispatch(deleteReview(review.id))} className="delete-review">Delete Review</button>
-                }
             </div>
             <p>{review.body}</p>
+            {
+                (currentUserId === review.authorId) && <button onClick={() => dispatch(deleteReview(review.id))} className="delete-review">Delete Review</button>
+            }
         </div>
     )
 }
