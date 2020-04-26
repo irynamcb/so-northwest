@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {fetchAllProducts, fetchSingleProduct} from '../../util/products_api_util';
+import {createReview, deleteReview} from '../../util/reviews_api_util';
 
 export const initialState = {
     hasErrors: false,
