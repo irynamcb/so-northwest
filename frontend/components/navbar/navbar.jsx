@@ -28,12 +28,12 @@ export default class Navbar extends React.Component {
     }
 
     personalGreeting() {
-        const icon = <FontAwesomeIcon icon={faSignInAlt} size="1x" pull="left" inverse transform="shrink-4" spin />
+        const logo = <FontAwesomeIcon icon={faTree} size="1x" pull="left" inverse transform="shrink-4" spin />
         return (
        
             <div className="navbar">
                 <div className="header-group">
-                    <Link to="/" className="home">{icon}So_Northwest</Link>
+                    <Link to="/" className="home">{logo}So_Northwest</Link>
                     <div className="nav-content">
                         <div className="header-name"><Link to='/'>Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}!</Link></div>
                         <div><Link to="/" className="home">Cart</Link></div>

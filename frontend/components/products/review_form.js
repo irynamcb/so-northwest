@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
-import StarRatings from 'react-star-ratings';
+import StarRatingComponent from 'react-star-rating-component';
 import AutosizeInput from 'react-input-autosize';
 import { createReview } from './product_slice';
 
@@ -13,7 +13,7 @@ function ReviewForm(props) {
         body: '',
         authorId: props.authorId,
         productId: props.productId,
-        star: ''
+        star: 0
     });
 
     function handleSubmit(e) {
@@ -26,9 +26,12 @@ function ReviewForm(props) {
     }
 
     function clearBody() {
-        setState({...form, body: '', star: ''})
+        setState({...form, body: '', star: 0})
     }
 
+    function onStarClick(nextValue, prevValue, name) {
+        setState({...form, star: nextValue });
+    }
 
     return (
         <div className="review-form" >
@@ -42,6 +45,17 @@ function ReviewForm(props) {
                         id="star"
                             
                         />
+
+                {/* <StarRatingComponent
+                    name="rate1"
+                    className="star-rating"
+                    starCount={5}
+                    value={form.star}
+                    onStarClick={onStarClick}
+                    id="star"
+                /> */}
+
+                
                     <label htmlFor="body">Review *</label>
                     <input
                         type="text"

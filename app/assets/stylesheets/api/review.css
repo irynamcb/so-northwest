@@ -42,14 +42,12 @@
 }
 
 .rf {
-
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     /* border: 1px solid #ddd; */
     width: 50%;
     height: 40vh;
-
 }
 
 .post-review {
@@ -64,36 +62,33 @@
     font-style: normal;
     line-height: 16px;
     padding: 16px 32px;
-    border: 1px solid transparent;
     cursor: pointer;
     display: inline-block;
-    margin: 10px;
+    margin-left: 10px;
     text-align: center;
     text-decoration: none;
-    touch-action: manipulation;
     vertical-align: middle;
-    user-select: none;
     white-space: nowrap;
     height: 10%;
     width: 10%;
 }
 
-input[type=text] {
+.rf input[type=text]{
   width: 90%;
-  padding: 12px 20px;
-  margin: 8px 0;
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 2px;
-  margin: 10px;
   font-size: 14px;
   font-weight: 400;
+  height: 20%;
+  margin: 10px;
 }
+
 
 label {
     font-weight: 700;
     font-size: 1.2rem;
     font-family: Graphik,Roboto,Helvetica,Arial,sans-serif;
     line-height: 1.333;
-    margin-left: 10px;
+
 }
