@@ -5,7 +5,7 @@ import {deleteReview} from './product_slice';
 
 
 function Review(props) {
-    
+
     const dispatch = useDispatch()
     const {review, currentUserId} = props
  
@@ -33,8 +33,7 @@ function Review(props) {
             <p>{review.body}</p>
 
             {
-                (currentUserId === review.authorId) && 
-                <button onClick={dispatch(deleteReview(review.id))} className="">Delete Review</button>
+            (currentUserId === review.authorId) && <button onClick={() => dispatch(deleteReview(review.id))} className="">Delete Review</button>
             }
         </div>
     )

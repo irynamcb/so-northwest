@@ -41,11 +41,14 @@ const productSlice = createSlice({
         },
         removeReview: (state, {payload}) => {
             // remove review from state.reviews?
+
+            // debugger
             let review = Object.values(payload.reviews)[0]
             let i = state.products.findIndex(p => p.id === review.productId)
             if (i !== -1) {
                 state.products[i].reviews.splice(review.id, 1)
             } 
+            delete state.reviews[review.id]
         }
     }
 })
