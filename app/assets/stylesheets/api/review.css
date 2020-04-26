@@ -25,13 +25,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.review h3 {
+.review h3, .delete-review {
     color: rgb(41, 41, 41);
     font-size: 14px;
     font-weight: 400;
 }
+
+.delete-review:hover  {
+    color: yellowgreen;
+}
+
