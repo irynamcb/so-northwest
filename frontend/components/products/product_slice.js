@@ -1,13 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {fetchAllProducts, fetchSingleProduct} from '../../util/products_api_util';
-import {createReview, deleteReview} from '../../util/reviews_api_util';
+import {createSingleReview, deleteSingleReview} from '../../util/reviews_api_util';
 
 export const initialState = {
     hasErrors: false,
     products: [],
     sizes: {},
     reviews: {},
-    colors: {}
+    colors: {},
 }
 
 const productSlice = createSlice({
@@ -32,13 +32,20 @@ const productSlice = createSlice({
             state.sizes = Object.assign({}, state.sizes, payload.sizes)
             state.colors = Object.assign({}, state.colors, payload.colors)
             state.reviews = Object.assign({}, state.reviews, payload.reviews)
+        },
+        receiveReview: (state, {payload}) => {
+            // debugger
+            state.reviews = state.reviews.add(payload.id, review)
+
         }
     }
 })
 
 export const {
     receiveAllProducts,
-    receiveProduct
+    receiveProduct,
+    receiveReview
+
 } = productSlice.actions
 
 export const productsSelector = state => state.entities.products
@@ -66,4 +73,15 @@ export function fetchProduct(productId) {
             console.log(error)
         }
     }
+}
+
+export function createReview(review) {
+    return async dispatch => {
+        try {
+            const response = await createSingleReview(review)
+            dispatch(receiveReview(response))
+        } catch (error) {
+            console.log(error)
+        }
+    } 
 }

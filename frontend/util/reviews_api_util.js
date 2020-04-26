@@ -1,5 +1,5 @@
 
-export const createReview = review => (
+export const createSingleReview = review => (
     $.ajax({
         url: `/api/reviews/`,
         method: 'POST',
@@ -7,7 +7,7 @@ export const createReview = review => (
     })
 );
 
-export const deleteReview = reviewId => (
+export const deleteSingleReview = reviewId => (
     $.ajax({
         url: `/api/reviews/${reviewId}`,
         method: 'DELETE'

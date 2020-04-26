@@ -6,12 +6,6 @@ import { createReview } from './product_slice';
 
 function ReviewForm(props) {
 
-    // const review = props.review
-
-    // if (review === undefined) {
-    //     return (<div></div>)
-    // }
-
     const [form, setState] = useState({
         body: '',
         authorId: props.authorId,
@@ -21,7 +15,7 @@ function ReviewForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault;
-        createReview(?).then(() => clearBody())
+        createReview(form).then(() => clearBody())
     }
 
     function update(field) {

@@ -23,7 +23,8 @@ function Product() {
             product: product,
             sizes: state.entities.products.sizes,
             colors: state.entities.products.colors,
-            reviews: state.entities.products.reviews
+            reviews: state.entities.products.reviews,
+            userId: state.session.id
     }});
 
     if (product === undefined) {
@@ -66,7 +67,7 @@ function Product() {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx}/>)
                 }
             </div>
-            <ReviewForm />
+            <ReviewForm productId={productId} authorId={userId}/>
         </div>
     )
 

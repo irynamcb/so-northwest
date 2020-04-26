@@ -28,8 +28,9 @@ export default class Navbar extends React.Component {
     }
 
     personalGreeting() {
-
+        const icon = <FontAwesomeIcon icon={faSignInAlt} size="1x" pull="left" inverse transform="shrink-4" spin />
         return (
+       
             <div className="navbar">
                 <div className="header-group">
                     <Link to="/" className="home">{icon}So_Northwest</Link>
