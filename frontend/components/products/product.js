@@ -3,6 +3,7 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchProduct } from './product_slice';
 import {useParams} from 'react-router-dom';
 import Review from './review';
+import ReviewForm from './review_form';
 
 function Product() {
     const dispatch = useDispatch();
@@ -65,6 +66,7 @@ function Product() {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx}/>)
                 }
             </div>
+            <ReviewForm />
         </div>
     )
 
