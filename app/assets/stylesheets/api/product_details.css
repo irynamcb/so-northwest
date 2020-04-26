@@ -1,8 +1,14 @@
+.sp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+
 .single-product-details {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    float: right;
 }
 
 .single-product-details h1 {

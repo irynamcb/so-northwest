@@ -38,7 +38,7 @@ function Product() {
     });
 // debugger
     return (
-
+        <div className="sp">
         <div className="single-product-details">
             <h1>Check out this awesome product:</h1>
             <div className="spd">
@@ -61,16 +61,18 @@ function Product() {
                 }
                 </span>
             </div>
+        </div>
             Reviews:
             <div className="reviews">
                 {
-                product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx} currentUserId={userId}/>)
+                    product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx} currentUserId={userId} />)
                 }
             </div>
+
             {
-            (userId !== null) && <ReviewForm productId={productId} authorId={userId}/>
+                (userId !== null) && <ReviewForm productId={productId} authorId={userId} />
             }
-        </div>
+    </div>
     )
 
 }

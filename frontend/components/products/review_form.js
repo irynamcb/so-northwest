@@ -33,27 +33,24 @@ function ReviewForm(props) {
     return (
         <div className="review-form" >
 
-            <form onSubmit={handleSubmit} className="">
-
-                    <div className="">
+            <form onSubmit={handleSubmit} className="rf">
+                    <label htmlFor="star">Product Rating *</label>
                     <input
                         type="text"
-                        placeholder="Click to rate *"
                         value={form.star}
-                        autoFocus={true}
                         onChange={update('star')}
+                        id="star"
                             
                         />
-                    <AutosizeInput
+                    <label htmlFor="body">Review *</label>
+                    <input
                         type="text"
-                        placeholder="Review *"
                         value={form.body}
-                        autoFocus={true}
                         onChange={update('body')}
+                        id="body"
 
                         />
-                </div>
-                <button type='submit' className="">Post review</button>
+                <button type='submit' className="post-review">Post review</button>
             </form>
             
         </div>
