@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useDispatch } from 'react-redux';
 import StarRatings from 'react-star-ratings';
 import AutosizeInput from 'react-input-autosize';
 import { createReview } from './product_slice';
@@ -6,24 +7,26 @@ import { createReview } from './product_slice';
 
 function ReviewForm(props) {
 
+    const dispatch = useDispatch();
+
     const [form, setState] = useState({
         body: '',
         authorId: props.authorId,
         productId: props.productId,
-        star: 0
+        star: ''
     });
 
     function handleSubmit(e) {
-        e.preventDefault;
-        createReview(form).then(() => clearBody())
+        e.preventDefault();
+        dispatch(createReview(form))
     }
 
     function update(field) {
-       return e => setState({[field]: e.currentTarget.value})
+       return e => setState({...form, [field]: e.currentTarget.value})
     }
 
     function clearBody() {
-        setState({body: ''})
+        setState({...form, body: '', star: ''})
     }
 
 
@@ -33,7 +36,7 @@ function ReviewForm(props) {
             <form onSubmit={handleSubmit} className="">
 
                     <div className="">
-                    <AutosizeInput
+                    <input
                         type="text"
                         placeholder="Click to rate *"
                         value={form.star}
@@ -41,14 +44,14 @@ function ReviewForm(props) {
                         onChange={update('star')}
                             
                         />
-                    <AutosizeInput
+                    <input
                         type="text"
                         placeholder="Review *"
                         value={form.body}
                         autoFocus={true}
                         onChange={update('body')}
 
-                    />
+                        />
                 </div>
                 <button type='submit' className="">Post review</button>
             </form>

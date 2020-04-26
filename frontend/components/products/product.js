@@ -15,7 +15,7 @@ function Product() {
     }, [dispatch]);
 
     // similar to mapStateToProps
-    const {product, sizes, colors, reviews} = useSelector(state => {
+    const {product, sizes, colors, reviews, userId} = useSelector(state => {
 
         let productIdx = state.entities.products.products.findIndex(product => product.id === Number(productId));
         let product = state.entities.products.products[productIdx]
@@ -67,7 +67,9 @@ function Product() {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx}/>)
                 }
             </div>
-            <ReviewForm productId={productId} authorId={userId}/>
+            {
+            (userId !== null) && <ReviewForm productId={productId} authorId={userId}/>
+            }
         </div>
     )
 
