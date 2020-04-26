@@ -1,10 +1,13 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
 import StarRatings from 'react-star-ratings';
+import {deleteReview} from './product_slice';
 
 
 function Review(props) {
-
-    const review = props.review
+    
+    const dispatch = useDispatch()
+    const {review, currentUserId} = props
  
     if (review === undefined) {
         return (<div></div>)
@@ -28,6 +31,11 @@ function Review(props) {
                 <h3>{createdAt}</h3>
             </div>
             <p>{review.body}</p>
+
+            {
+                (currentUserId === review.authorId) && 
+                <button onClick={dispatch(deleteReview(review.id))} className="">Delete Review</button>
+            }
         </div>
     )
 }

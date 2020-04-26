@@ -38,6 +38,14 @@ const productSlice = createSlice({
             if (i !== -1) {
                 state.products[i].reviews.push(review.id)
             } 
+        },
+        removeReview: (state, {payload}) => {
+            // remove review from state.reviews?
+            let review = Object.values(payload.reviews)[0]
+            let i = state.products.findIndex(p => p.id === review.productId)
+            if (i !== -1) {
+                state.products[i].reviews.splice(review.id, 1)
+            } 
         }
     }
 })
@@ -45,7 +53,8 @@ const productSlice = createSlice({
 export const {
     receiveAllProducts,
     receiveProduct,
-    receiveReview
+    receiveReview,
+    removeReview
 
 } = productSlice.actions
 
@@ -86,3 +95,14 @@ export function createReview(review) {
     } 
 }
 
+export function deleteReview(reviewId) {
+
+    return async dispatch => {
+        try {
+            const response = await deleteSingleReview(reviewId)
+            dispatch(removeReview(response))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}

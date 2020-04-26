@@ -44,7 +44,7 @@ function ReviewForm(props) {
                         onChange={update('star')}
                             
                         />
-                    <input
+                    <AutosizeInput
                         type="text"
                         placeholder="Review *"
                         value={form.body}
