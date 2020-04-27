@@ -74,14 +74,18 @@ function Product() {
         </div>
             Reviews:
             <div className="average-rating">
-                <p>Average Customer Ratings</p>
-                Overall
-                <StarRatings
-                    rating={5}
-                    starRatedColor="darkblue"
-                    starDimension="18px"
-                    starSpacing="1px"
-                /> {5}
+                <div className="ar">
+                    <p>Average Customer Ratings</p>
+                    <div className="ard">
+                    Overall
+                    <StarRatings
+                        rating={5}
+                        starRatedColor="darkblue"
+                        starDimension="18px"
+                        starSpacing="1px"
+                    /> {5}
+                    </div>
+                </div>
             </div>
             <div className="reviews">
                 {

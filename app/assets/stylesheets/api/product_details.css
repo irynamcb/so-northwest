@@ -70,3 +70,26 @@
 .black {
     background-color: black;
 }
+
+.average-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+
+.ar {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.ar p {
+    margin-bottom: 20px;
+}
+
+.ard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
