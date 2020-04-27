@@ -3,6 +3,7 @@ import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import SingleProduct from './single_product';
 import {fetchProducts} from './product_slice';
 
+
 function Products() {
     const dispatch = useDispatch();
 

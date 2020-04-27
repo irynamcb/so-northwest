@@ -4,6 +4,7 @@ import { fetchProduct } from './product_slice';
 import {useParams} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
+import StarRatings from 'react-star-ratings';
 
 function Product() {
     const dispatch = useDispatch();
@@ -72,6 +73,16 @@ function Product() {
             </div>
         </div>
             Reviews:
+            <div className="average-rating">
+                <p>Average Customer Ratings</p>
+                Overall
+                <StarRatings
+                    rating={5}
+                    starRatedColor="darkblue"
+                    starDimension="18px"
+                    starSpacing="1px"
+                /> {5}
+            </div>
             <div className="reviews">
                 {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx} currentUserId={userId} />)

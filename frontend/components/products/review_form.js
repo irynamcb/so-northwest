@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
 import StarRatings from 'react-star-ratings';
-import AutosizeInput from 'react-input-autosize';
 import { createReview } from './product_slice';
 
 
