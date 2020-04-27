@@ -68,6 +68,9 @@ function Product() {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx} currentUserId={userId} />)
                 }
             </div>
+            {
+                (userId !== null) && <button className="write-review">Write a review</button>
+            }
 
             {
                 (userId !== null) && <ReviewForm productId={productId} authorId={userId} />

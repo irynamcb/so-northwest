@@ -46,7 +46,7 @@ function ReviewForm(props) {
                     numberOfStars={5}
                     starDimension="25px"
                     starSpacing="1px"
-                    starSelectingHoverColor="yellow"
+                    starSelectingHoverColor="red"
                     name='star'
                 />
 

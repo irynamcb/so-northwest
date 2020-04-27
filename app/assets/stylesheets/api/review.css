@@ -50,7 +50,7 @@
     height: 40vh;
 }
 
-.post-review {
+.post-review, .wrire-review {
     color: #fff;
     background-color: #426c90;
     border: 1px solid #426c90;
@@ -62,7 +62,6 @@
     padding: 16px 32px;
     cursor: pointer;
     display: inline-block;
-    margin-left: 10px;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
@@ -79,7 +78,7 @@
   font-size: 14px;
   font-weight: 400;
   height: 20%;
-  margin: 10px;
+  margin: 10px 0;
 }
 
 
