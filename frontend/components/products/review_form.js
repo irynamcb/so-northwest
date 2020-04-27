@@ -47,17 +47,16 @@ function ReviewForm(props) {
                     starDimension="25px"
                     starSpacing="1px"
                     starSelectingHoverColor="yellow"
-                    name='rating'
+                    name='star'
                 />
 
                 <label htmlFor="body">Review *</label>
-                <input
-                    type="text"
+                <textarea
                     value={form.body}
                     onChange={update('body')}
-                    id="body"
+                    id="body">
 
-                    />
+                </textarea>
                 <button type='submit' className="post-review">Post review</button>
             </form>
             

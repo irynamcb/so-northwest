@@ -22,7 +22,8 @@ function Review(props) {
     return (
         <div className="review" >
             <div className="review-info">
-                <StarRatings rating={review.star}
+                <StarRatings 
+                rating={review.star}
                 starRatedColor="darkblue"
                 starDimension="25px"
                 starSpacing="1px"
