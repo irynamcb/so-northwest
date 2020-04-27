@@ -11,8 +11,8 @@ export default class Navbar extends React.Component {
     }
 
     sessionLinks() {
-        const logo = <FontAwesomeIcon icon={faTree} size="1x"  pull="left" inverse transform="shrink-4" spin/>
-        const icon = <FontAwesomeIcon icon={faSignInAlt} size="1x"  pull="left" inverse transform="shrink-4" spin />
+        const logo = <FontAwesomeIcon icon={faTree} size="1x"  pull="left" inverse transform="shrink-4" />
+        const icon = <FontAwesomeIcon icon={faSignInAlt} size="1x"  pull="left" inverse transform="shrink-4" />
         return (
             <div className="navbar">
                 <nav className="header-group">
@@ -28,7 +28,7 @@ export default class Navbar extends React.Component {
     }
 
     personalGreeting() {
-        const logo = <FontAwesomeIcon icon={faTree} size="1x" pull="left" inverse transform="shrink-4" spin />
+        const logo = <FontAwesomeIcon icon={faTree} size="1x" pull="left" inverse transform="shrink-4" />
         return (
        
             <div className="navbar">
