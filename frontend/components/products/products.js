@@ -17,6 +17,9 @@ function Products() {
     return (
 
         <div className="products">
+            <div className="main-picture">
+                Mountains are calling, and I must go!
+            </div>
             <h1>Products</h1>
             <div className="product-list">
                 {products.map(product => 
