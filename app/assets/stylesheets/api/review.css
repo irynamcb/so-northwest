@@ -53,9 +53,7 @@
 .post-review {
     color: #fff;
     background-color: #426c90;
-    border-color: #426c90;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid #426c90;
     border-radius: 2px;
     outline: 0;
     font-size: 16px;

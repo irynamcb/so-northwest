@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatings from 'react-star-ratings';
 import AutosizeInput from 'react-input-autosize';
 import { createReview } from './product_slice';
 
@@ -29,41 +29,35 @@ function ReviewForm(props) {
         setState({...form, body: '', star: 0})
     }
 
-    function onStarClick(nextValue, prevValue, name) {
-        setState({...form, star: nextValue });
+    function changeRating(newRating, name) {
+        setState({...form, star: newRating})
     }
 
     return (
         <div className="review-form" >
 
             <form onSubmit={handleSubmit} className="rf">
-                    <label htmlFor="star">Product Rating *</label>
-                    <input
-                        type="text"
-                        value={form.star}
-                        onChange={update('star')}
-                        id="star"
-                            
-                        />
+                <label htmlFor="star">Product Rating *</label>
 
-                {/* <StarRatingComponent
-                    name="rate1"
-                    className="star-rating"
-                    starCount={5}
-                    value={form.star}
-                    onStarClick={onStarClick}
-                    id="star"
-                /> */}
+                <StarRatings
+                    rating={form.star}
+                    starRatedColor="darkblue"
+                    changeRating={changeRating}
+                    numberOfStars={5}
+                    starDimension="25px"
+                    starSpacing="1px"
+                    starSelectingHoverColor="yellow"
+                    name='rating'
+                />
 
-                
-                    <label htmlFor="body">Review *</label>
-                    <input
-                        type="text"
-                        value={form.body}
-                        onChange={update('body')}
-                        id="body"
+                <label htmlFor="body">Review *</label>
+                <input
+                    type="text"
+                    value={form.body}
+                    onChange={update('body')}
+                    id="body"
 
-                        />
+                    />
                 <button type='submit' className="post-review">Post review</button>
             </form>
             
