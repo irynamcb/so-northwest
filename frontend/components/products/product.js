@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchProduct } from './product_slice';
 import {useParams} from 'react-router-dom';
@@ -7,6 +7,8 @@ import ReviewForm from './review_form';
 
 function Product() {
     const dispatch = useDispatch();
+    const [showForm, setShowForm] = useState(false);
+    const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
 
@@ -36,7 +38,7 @@ function Product() {
         if (sizes[sizeId] !== undefined)
         sizes[sizeId].colors.map(colorId => colorNames.add(colors[colorId].color))
     });
-// debugger
+
     return (
         <div className="sp">
         <div className="single-product-details">
@@ -60,6 +62,13 @@ function Product() {
                     Array.from(colorNames).map((name, idx) => <button key={idx} className={name}>{name}</button>)
                 }
                 </span>
+                {
+                        (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>
+                }
+                {
+                        (showForm) && <ReviewForm productId={productId} authorId={userId} />
+                }
+
             </div>
         </div>
             Reviews:
@@ -68,13 +77,6 @@ function Product() {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx} currentUserId={userId} />)
                 }
             </div>
-            {
-                (userId !== null) && <button className="write-review">Write a review</button>
-            }
-
-            {
-                (userId !== null) && <ReviewForm productId={productId} authorId={userId} />
-            }
     </div>
     )
 
