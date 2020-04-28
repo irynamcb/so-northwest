@@ -48,8 +48,9 @@ function Product() {
     return (
         
         <div className="sp">
+        <h1>Check out this awesome product:</h1>
         <div className="single-product-details">
-            <h1>Check out this awesome product:</h1>
+            <img src={product.photoUrl} />
             <div className="spd">
                 <h1>{product.description}</h1>
                 <StarRatings

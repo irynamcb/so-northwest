@@ -5,12 +5,24 @@
     padding: 20px;
 }
 
+.spd {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
 
 .single-product-details {
     display: flex;
-    flex-direction: column;
-    margin-left: 500px;
+    flex-direction: row;
     margin-bottom: 50px;
+}
+
+.single-product-details img {
+    width: 30%;
+    height: 30%;
+    margin-right: 20px;
+    margin-top: 5px;
 }
 
 .single-product-details h1 {
