@@ -42,7 +42,7 @@ function Product() {
 
     let stars = product.reviews.map( reviewId => reviews[reviewId].star );
     let reviewCount = stars.length;
-    let starsAvg = Number((stars.reduce((a, b) => a + b, 0) / stars.length).toFixed(2));
+    let starsAvg = Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
     
 
     return (
