@@ -40,7 +40,7 @@ function Product() {
         sizes[sizeId].colors.map(colorId => colorNames.add(colors[colorId].color))
     });
 
-    let stars = product.reviews.map(reviewId => reviews[reviewId].star);
+    let stars = product.reviews.map( reviewId => reviews[reviewId].star );
     let reviewCount = stars.length;
     let starsAvg = Number((stars.reduce((a, b) => a + b, 0) / stars.length).toFixed(2));
     
@@ -76,10 +76,10 @@ function Product() {
                 }
                 </span>
                 {
-                        (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>
+                    (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>
                 }
                 {
-                        (showForm) && <ReviewForm productId={productId} authorId={userId} />
+                    (showForm) && <ReviewForm productId={productId} authorId={userId} />
                 }
 
             </div>
