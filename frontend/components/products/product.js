@@ -33,14 +33,19 @@ function Product() {
     if (product === undefined) {
         return (<div></div>)
     }
-  
+//   debugger
     let colorNames = new Set();
     product.sizes.map(sizeId => {
         if (sizes[sizeId] !== undefined)
         sizes[sizeId].colors.map(colorId => colorNames.add(colors[colorId].color))
     });
 
+    let stars = product.reviews.map(reviewId => reviews[reviewId].star);
+    let starsAvg = stars.reduce((a, b) => a + b, 0) / stars.length;
+    
+
     return (
+        
         <div className="sp">
         <div className="single-product-details">
             <h1>Check out this awesome product:</h1>
@@ -72,6 +77,7 @@ function Product() {
 
             </div>
         </div>
+
             Reviews:
             <div className="average-rating">
                 <div className="ar">
@@ -79,11 +85,11 @@ function Product() {
                     <div className="ard">
                     Overall
                     <StarRatings
-                        rating={5}
+                        rating={starsAvg}
                         starRatedColor="darkblue"
                         starDimension="18px"
                         starSpacing="1px"
-                    /> {5}
+                        /> {starsAvg}
                     </div>
                 </div>
             </div>
