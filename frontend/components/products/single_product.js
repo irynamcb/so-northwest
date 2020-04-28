@@ -18,6 +18,7 @@ if (props === undefined) {
 
 return (
     <div className="single-product" onClick={handleClick}>
+        {/* <img src={product.photoUrl} /> */}
         <p>Multiple colors availiable</p>
         <h1><Link to={`/products/${product.id}`}>{product.description}</Link></h1>
         <h2>{product.details}</h2>

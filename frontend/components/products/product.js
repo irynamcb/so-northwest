@@ -53,12 +53,14 @@ function Product() {
             <img src={product.photoUrl} />
             <div className="spd">
                 <h1>{product.description}</h1>
+                <span className="stars-info">
                 <StarRatings
                     rating={starsAvg}
                     starRatedColor="#3278ae"
                     starDimension="25px"
                     starSpacing="1px"
-                /> {`${starsAvg} | (${reviewCount})`}
+                />&nbsp;{`${starsAvg} | (${reviewCount})`}
+                </span>
                 <h2>${product.price}.00</h2>
                 Size:
                 <span className="size">

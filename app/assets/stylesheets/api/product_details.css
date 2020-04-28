@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 50px;
+    justify-content: center;
 }
 
 .single-product-details img {
@@ -104,4 +105,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.starts-info {
+    display: flex;
+    flex-direction: row;
 }
