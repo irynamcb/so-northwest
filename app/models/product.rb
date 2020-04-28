@@ -2,6 +2,8 @@ class Product < ApplicationRecord
 
 validates :price, :description, :details, presence: true
 
+has_one_attached :photo
+
 has_many :sizes,
 primary_key: :id,
 foreign_key: :product_id,
