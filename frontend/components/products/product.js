@@ -41,7 +41,8 @@ function Product() {
     });
 
     let stars = product.reviews.map(reviewId => reviews[reviewId].star);
-    let starsAvg = stars.reduce((a, b) => a + b, 0) / stars.length;
+    let reviewCount = stars.length;
+    let starsAvg = Number((stars.reduce((a, b) => a + b, 0) / stars.length).toFixed(2));
     
 
     return (
@@ -51,6 +52,12 @@ function Product() {
             <h1>Check out this awesome product:</h1>
             <div className="spd">
                 <h1>{product.description}</h1>
+                <StarRatings
+                    rating={starsAvg}
+                    starRatedColor="#3278ae"
+                    starDimension="25px"
+                    starSpacing="1px"
+                /> {`${starsAvg} | (${reviewCount})`}
                 <h2>${product.price}.00</h2>
                 Size:
                 <span className="size">
@@ -77,7 +84,6 @@ function Product() {
 
             </div>
         </div>
-
             Reviews:
             <div className="average-rating">
                 <div className="ar">
@@ -86,7 +92,7 @@ function Product() {
                     Overall
                     <StarRatings
                         rating={starsAvg}
-                        starRatedColor="darkblue"
+                        starRatedColor="#3278ae"
                         starDimension="18px"
                         starSpacing="1px"
                         /> {starsAvg}

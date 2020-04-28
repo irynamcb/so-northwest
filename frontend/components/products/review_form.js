@@ -40,7 +40,7 @@ function ReviewForm(props) {
 
                 <StarRatings
                     rating={form.star}
-                    starRatedColor="darkblue"
+                    starRatedColor="darkgreen"
                     changeRating={changeRating}
                     numberOfStars={5}
                     starDimension="25px"
@@ -54,11 +54,9 @@ function ReviewForm(props) {
                     value={form.body}
                     onChange={update('body')}
                     id="body">
-
                 </textarea>
                 <button type='submit' className="post-review">Post review</button>
             </form>
-            
         </div>
     )
 }
