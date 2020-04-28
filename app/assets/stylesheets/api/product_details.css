@@ -92,8 +92,11 @@
 }
 
 .ar {
+    
     display: flex;
     flex-direction: column;
+    background-image: url(https://satchel.rei.com/media/img/footer/trees_left.svg);
+    background-size: 14% 90%;
     
 }
 
