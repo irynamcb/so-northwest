@@ -22,7 +22,7 @@ function Product() {
         dispatch(fetchProduct(productId));
     }, [dispatch]);
 
-    // similar to mapStateToProps
+
     const {product, sizes, colors, reviews, userId} = useSelector(state => {
 
         let productIdx = state.entities.products.products.findIndex(product => product.id === Number(productId));
