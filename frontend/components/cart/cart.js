@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 
 function Cart() {
     const dispatch = useDispatch();
+    let history = useHistory();
 
     function handleClick(e) {
         e.preventDefault();
@@ -22,17 +23,21 @@ function Cart() {
     // debugger
     return (
 
-        <div className="">
-            <div className="">
+        <div className="cart">
+            <div className="crt">
+            <div className="ci1">
                <h1>Shopping Cart</h1>
                <h2>0 items</h2>
             </div>
-            <div className="">
+            <div className="ci2">
                 <h1>$0.00</h1>
                 <h2>Subtotal</h2>
             </div>
-            <button onClick={handleClick}>Continue shopping</button>
-            <button>Proceed to checkout</button>
+            </div>
+            <div className="ci3">
+            <button onClick={handleClick} className="shopping">Continue shopping</button>
+            <button className="checkout">Proceed to checkout</button>
+            </div>
         </div>
     )
 

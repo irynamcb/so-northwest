@@ -1,0 +1,36 @@
+.cart {
+    padding: 20px;
+}
+
+
+.ci3, .crt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ci1 , .ci2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.ci1 h1, .ci2 h1 {
+    font-family: Stuart,Georgia,serif!important;
+    font-weight: 500!important;
+    text-transform: none!important;
+    font-stretch: normal!important;
+    font-size: 28.43px;
+    line-height: 1.333;
+}
+
+.ci1 h2, .ci2 h2 {
+    color: #666;
+    font-size: 1.4rem;
+    margin: 0 0 12px;
+    font-family: Graphik,Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+
+
+}

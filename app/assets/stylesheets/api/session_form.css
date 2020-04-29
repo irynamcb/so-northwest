@@ -62,7 +62,7 @@
     white-space: nowrap;
 }
 
-.create-account {
+.create-account, .shopping, .checkout {
     color: #2e2e2e;
     background-color: #fff;
     border-color: #c5c5c5;
