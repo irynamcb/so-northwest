@@ -48,6 +48,8 @@ function Product() {
             userId: state.session.id
     }});
 ```
+<img src="app/assets/images/2.png" width=80% height=80% />
+
 Product slice of state:
 
 ```javascript
@@ -80,3 +82,5 @@ const productSlice = createSlice({
             } 
         }
 ```
+
+<img src="app/assets/images/3.png" width=80% height=80% />
