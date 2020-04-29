@@ -5,10 +5,15 @@ import {useParams} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+
+
 
 function Product() {
     const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
+    const [count, setCount] = useState(1);
     const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
@@ -78,6 +83,23 @@ function Product() {
                     Array.from(colorNames).map((name, idx) => <button key={idx} className={name}>{name}</button>)
                 }
                 </span>
+                Quantity:
+                <div className="quantity">
+                <FontAwesomeIcon icon={faMinusCircle} 
+                color="#c5c5c5"
+                size="lg"
+                onClick={() => setCount(count - 1)}
+                /> 
+                <h1>{count}</h1>
+                <FontAwesomeIcon icon={faPlusCircle} 
+                color="#c5c5c5"
+                size="lg"
+                onClick={() => setCount(count + 1)}
+                />
+                </div>
+                
+                <button className="add-to-cart">Add to cart</button>
+                
                 {
                     (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>
                 }
