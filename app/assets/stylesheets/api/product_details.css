@@ -60,6 +60,10 @@
     flex-direction: row;
 }
 
+.size button:focus, .color button:focus {
+    border-color: #347cb1;
+}
+
 .size button, .color button {
     margin: 10px 10px 10px 0;
     border: 1px solid rgb(209, 209, 209);

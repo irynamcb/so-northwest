@@ -49,6 +49,11 @@ function Product() {
     let reviewCount = stars.length;
     let starsAvg = Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
     
+    function decrement() {
+        if (count > 1) {
+            setCount(count - 1)
+        }
+    }
 
     return (
         
@@ -85,17 +90,19 @@ function Product() {
                 </span>
                 Quantity:
                 <div className="quantity">
-                <FontAwesomeIcon icon={faMinusCircle} 
-                color="#c5c5c5"
-                size="lg"
-                onClick={() => setCount(count - 1)}
-                /> 
-                <h1>{count}</h1>
-                <FontAwesomeIcon icon={faPlusCircle} 
-                color="#c5c5c5"
-                size="lg"
-                onClick={() => setCount(count + 1)}
-                />
+                    <FontAwesomeIcon icon={faMinusCircle} 
+                    color="#c5c5c5"
+                    size="lg"
+                    cursor="pointer"
+                    onClick={decrement}
+                    /> 
+                    <h1>{count}</h1>
+                    <FontAwesomeIcon icon={faPlusCircle} 
+                    color="#c5c5c5"
+                    size="lg"
+                    cursor="pointer"
+                    onClick={() => setCount(count + 1)}
+                    />
                 </div>
                 
                 <button className="add-to-cart">Add to cart</button>
