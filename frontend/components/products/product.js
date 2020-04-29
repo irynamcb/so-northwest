@@ -45,16 +45,16 @@ function Product() {
         sizes[sizeId].colors.map(colorId => colorNames.add(colors[colorId].color))
     });
 
-    let stars = product.reviews.map( reviewId => reviews[reviewId].star );
+    let stars = product.reviews.filter(reviewId => reviews[reviewId] !== undefined).map(reviewId => reviews[reviewId].star);
     let reviewCount = stars.length;
-    let starsAvg = Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
+    let starsAvg = (reviewCount === 0) ? 0 : Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
     
     function decrement() {
         if (count > 1) {
             setCount(count - 1)
         }
     }
-
+// debugger
     return (
         
         <div className="sp">
