@@ -7,13 +7,29 @@
 
 .product-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-direction: row;
 }
 
+.single-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    min-width: 20vw;
+    min-height: 20vh;
+}
+
 .single-product img {
-    height: 15%;
-    width: 15%;
+    height: 30%;
+    width: 30%;
 }
 
 .single-product h1 {
