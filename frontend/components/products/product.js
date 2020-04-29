@@ -38,7 +38,7 @@ function Product() {
     if (product === undefined) {
         return (<div></div>)
     }
-//   debugger
+
     let colorNames = new Set();
     product.sizes.map(sizeId => {
         if (sizes[sizeId] !== undefined)
