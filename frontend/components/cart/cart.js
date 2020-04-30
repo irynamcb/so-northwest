@@ -9,7 +9,7 @@ function Cart() {
     let history = useHistory();
 
     const { items, userId, products, sizes } = useSelector(state => {
-debugger
+// debugger
         return {
             items: state.entities.cart.items,
             products: state.entities.products.products,
@@ -18,13 +18,23 @@ debugger
             userId: state.session.id
         }
     });
-
+// debugger
     function handleClick(e) {
         e.preventDefault();
         history.push(`/`)
     }
-    // let prices = items.map(item => item.price);
-    // let countTotal = prices.reduce((a, b) => a + b, 0);
+
+    function findPrice(index) {
+        return products.find(p => p.id === index).price
+    }
+
+    function total() {
+        let sum = 0;
+        Object.values(items).forEach(item => {
+            sum += findPrice(item.productId) * item.count;
+        })
+        return sum;
+    }
 
     let numItems = Object.keys(items).length;
     let numItemstext;
@@ -39,13 +49,16 @@ debugger
                <h2>{numItems} {numItemstext}</h2>
             </div>
             <div className="ci2">
-                <h1>$0.00</h1>
+                <h1>${total()}</h1>
                 <h2>Subtotal</h2>
             </div>
             </div>
             <div className="ci3">
             <button onClick={handleClick} className="shopping">Continue shopping</button>
             <button className="checkout">Proceed to checkout</button>
+            </div>
+            <div className="cart-items">
+                
             </div>
         </div>
     )
