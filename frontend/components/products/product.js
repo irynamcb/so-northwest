@@ -65,14 +65,21 @@ function Product() {
         setSelectedSize(size)
     }
 
-    // function sku {
-    //     // makeId from the other 3 ids
-    //     id 
-    //     productId
-    //     sizeId
-    //     colorId
-    //     count
-    // }
+    function makeId(num1, num2, num3) {
+        id = num1*100 - num2*10 - num3*5;
+    }
+
+    function sku(productId, sizeId, selectedColor, count) {
+        
+        let item = {
+            id: makeId(productId, sizeId, count),
+            productId: productId,
+            sizeId: selectedSize,
+            color: selectedColor,
+            count: count
+        }
+        return item;
+    }
 // debugger
     return (
         
@@ -97,14 +104,14 @@ function Product() {
                     product.sizes.map(sizeId => {
                     if (sizes[sizeId] !== undefined) {
                         return (
-                            <button key={sizeId} className='sz' onClick={() => selectSize(sizeId)} className={(selectedSize === sizeId) ? `sz selected` : 'sz'} >{sizes[sizeId].size}</button>
+                            <button key={sizeId} onClick={() => selectSize(sizeId)} className={(selectedSize === sizeId) ? `sz selected` : 'sz'} >{sizes[sizeId].size}</button>
                         )}})
                 }
                 </span>
                 Color:
                 <span className="color">
                 {
-                    Array.from(colorNames).map((name, idx) => <button key={idx} className={name} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
+                    Array.from(colorNames).map((name, idx) => <button key={idx} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
                 }
                 </span>
                 Quantity:
