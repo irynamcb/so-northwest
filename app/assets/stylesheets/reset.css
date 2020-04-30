@@ -48,6 +48,7 @@ a:-webkit-any-link {
 	color: inherit;
 }
 
-p:hover {
+h1:hover, h2:hover, p:hover {
   cursor: auto;
+  text-decoration: none;
 }
