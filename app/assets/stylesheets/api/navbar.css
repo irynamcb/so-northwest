@@ -22,7 +22,11 @@
     align-items: center;
 }
 
-.signup-btn:hover {
+.header-group a:hover {
+    text-decoration: underline;
+}
+
+.signup-btn:hover, .header-button:hover {
     color: green;
     cursor: pointer;
 }

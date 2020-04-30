@@ -39,7 +39,7 @@
     line-height: 1.333;
 }
 
-.single-product h1:hover, h2:hover {
+.single-product h1:hover, .single-product h2:hover {
     text-decoration: underline;
     cursor: pointer;
 }

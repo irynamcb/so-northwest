@@ -7,10 +7,15 @@
     margin-left: 20px;
 }
 
+
 .signup-form-container h1 {
     font-size: 38px;
     line-height: 1.333;
     margin-bottom: 10px;
+    font-family: Stuart,Georgia,serif;
+    text-transform: none;
+    font-stretch: normal;
+    font-weight: 500;
 }
 
 .signup-form-container h2 {
