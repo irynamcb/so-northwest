@@ -4,14 +4,18 @@ import { Link, useHistory } from "react-router-dom";
 
 
 
-function Cart() {
+function Cart(props) {
     const dispatch = useDispatch();
     let history = useHistory();
+
+    let {count, items} = props;
 
     function handleClick(e) {
         e.preventDefault();
         history.push(`/`)
     }
+    // let prices = items.map(item => item.price);
+    // let countTotal = prices.reduce((a, b) => a + b, 0);
 
     // useEffect(() => {
     //     dispatch(fetchProducts());
@@ -20,7 +24,6 @@ function Cart() {
     // similar to mapStateToProps
     // const products = useSelector(state => state.entities.products.products)
 
-    // debugger
     return (
 
         <div className="cart">

@@ -14,6 +14,8 @@ function Product() {
     const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
     const [count, setCount] = useState(1);
+    const [selectedSize, setSelectedSize] = useState(false);
+    const [selectedColor, setSelectedColor] = useState(false);
     const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
@@ -54,6 +56,23 @@ function Product() {
             setCount(count - 1)
         }
     }
+
+    function selectColor(color) {
+        setSelectedColor(color)
+    }
+
+    function selectSize(size) {
+        setSelectedSize(size)
+    }
+
+    // function sku {
+    //     // makeId from the other 3 ids
+    //     id 
+    //     productId
+    //     sizeId
+    //     colorId
+    //     count
+    // }
 // debugger
     return (
         
@@ -78,14 +97,14 @@ function Product() {
                     product.sizes.map(sizeId => {
                     if (sizes[sizeId] !== undefined) {
                         return (
-                            <button key={sizeId}>{sizes[sizeId].size}</button>
+                            <button key={sizeId} className='sz' onClick={() => selectSize(sizeId)} className={(selectedSize === sizeId) ? `sz selected` : 'sz'} >{sizes[sizeId].size}</button>
                         )}})
                 }
                 </span>
                 Color:
                 <span className="color">
                 {
-                    Array.from(colorNames).map((name, idx) => <button key={idx} className={name}>{name}</button>)
+                    Array.from(colorNames).map((name, idx) => <button key={idx} className={name} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
                 }
                 </span>
                 Quantity:

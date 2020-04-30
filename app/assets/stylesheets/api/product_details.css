@@ -60,13 +60,9 @@
     flex-direction: row;
 }
 
-.size button:focus, .color button:focus {
-    border-color: #347cb1;
-}
 
 .size button, .color button {
     margin: 10px 10px 10px 0;
-    border: 1px solid rgb(209, 209, 209);
     font-family: graphik;
     font-size: 14px;
     white-space: nowrap;
@@ -74,18 +70,30 @@
     width: 8vw;
     text-align: center;
     color: gray;
+    
+}
+
+.sz {
+    border: 5px solid rgb(209, 209, 209);
 }
 
 .red {
     background-color: darkred;
+    border: 5px solid rgb(209, 209, 209);
 }
 
 .blue {
     background-color: darkblue;
+    border: 5px solid rgb(209, 209, 209);
 }
 
 .black {
     background-color: black;
+    border: 5px solid rgb(209, 209, 209);
+}
+
+.selected {
+    border: 5px solid #347cb1;
 }
 
 .average-rating {
