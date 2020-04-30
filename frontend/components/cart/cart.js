@@ -8,7 +8,15 @@ function Cart() {
     const dispatch = useDispatch();
     let history = useHistory();
 
-    const items = useSelector(state => state.entities.cart.items)
+    const { items, userId, products, sizes } = useSelector(state => {
+
+        return {
+            items: state.entities.cart.items,
+            // products: state.entitites.products.products,
+            // sizes: state.entities.products.sizes,
+            userId: state.session.id
+        }
+    });
 
     function handleClick(e) {
         e.preventDefault();
@@ -17,12 +25,9 @@ function Cart() {
     // let prices = items.map(item => item.price);
     // let countTotal = prices.reduce((a, b) => a + b, 0);
 
-    // useEffect(() => {
-    //     dispatch(fetchProducts());
-    // }, [dispatch]);
-
-    // similar to mapStateToProps
-    // const products = useSelector(state => state.entities.products.products)
+    let numItems = Object.keys(items).length;
+    let numItemstext;
+    (numItems !== 1) ? numItemstext = "items" : numItemstext="item";
 
     return (
 
@@ -30,7 +35,7 @@ function Cart() {
             <div className="crt">
             <div className="ci1">
                <h1>Shopping Cart</h1>
-               <h2>0 items</h2>
+               <h2>{numItems} {numItemstext}</h2>
             </div>
             <div className="ci2">
                 <h1>$0.00</h1>
