@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTree, faSignInAlt, faCartPlus} from '@fortawesome/free-solid-svg-icons'
+import { faTree, faSignInAlt, faDolly} from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Navbar extends React.Component {
@@ -29,7 +29,7 @@ export default class Navbar extends React.Component {
 
     personalGreeting() {
         const logo = <FontAwesomeIcon icon={faTree} size="1x" pull="left" inverse transform="shrink-4" />
-        const cart = <FontAwesomeIcon icon={faCartPlus} size="1x" pull="left" inverse transform="shrink-4" />
+        const cart = <FontAwesomeIcon icon={faDolly} size="1x" inverse transform="shrink-4" />
         return (
        
             <div className="navbar">

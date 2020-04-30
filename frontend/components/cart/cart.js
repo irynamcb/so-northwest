@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
+import CartItem from './cart_item';
 
 
 
@@ -22,6 +23,10 @@ function Cart() {
     function handleClick(e) {
         e.preventDefault();
         history.push(`/`)
+    }
+
+    function findProduct(index) {
+        return products.find(p => p.id === index)
     }
 
     function findPrice(index) {
@@ -58,7 +63,14 @@ function Cart() {
             <button className="checkout">Proceed to checkout</button>
             </div>
             <div className="cart-items">
-                
+                {
+                Object.values(items).map(item => <CartItem 
+                    key={item.id} 
+                    item={findProduct(item.productId)}
+                    count={item.count}
+                    color={item.color}
+                    />)
+                }
             </div>
         </div>
     )
