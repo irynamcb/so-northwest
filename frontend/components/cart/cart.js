@@ -4,11 +4,11 @@ import { Link, useHistory } from "react-router-dom";
 
 
 
-function Cart(props) {
+function Cart() {
     const dispatch = useDispatch();
     let history = useHistory();
 
-    let {count, items} = props;
+    const items = useSelector(state => state.entities.cart.items)
 
     function handleClick(e) {
         e.preventDefault();

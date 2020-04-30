@@ -5,8 +5,9 @@ import {useParams} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import {addToCart} from '../cart/cart_slice';
 
 
 
@@ -66,19 +67,25 @@ function Product() {
     }
 
     function makeId(num1, num2, num3) {
-        id = num1*100 - num2*10 - num3*5;
+        return [num1, num2, num3]
     }
 
-    function sku(productId, sizeId, selectedColor, count) {
+    function sku(productId, selectedSize, selectedColor, count) {
         
         let item = {
-            id: makeId(productId, sizeId, count),
+            id: makeId(productId, selectedSize, selectedColor),
             productId: productId,
             sizeId: selectedSize,
             color: selectedColor,
             count: count
         }
         return item;
+        
+    }
+
+    function handleCart() {
+        let item = sku(productId, selectedSize, selectedColor, count);  
+        dispatch(addToCart(item));
     }
 // debugger
     return (
@@ -131,7 +138,7 @@ function Product() {
                     />
                 </div>
                 
-                <button className="add-to-cart">Add to cart</button>
+                <button className="add-to-cart" onClick={handleCart} >Add to cart</button>
                 
                 {
                     (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>
