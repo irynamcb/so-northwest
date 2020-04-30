@@ -84,7 +84,7 @@ function Product() {
     }
 
     function handleCart() {
-        let item = sku(productId, selectedSize, selectedColor, count);  
+        let item = sku(Number(productId), selectedSize, selectedColor, count);  
         dispatch(addToCart(item));
         alert("You have successfully added an item to a cart! All good :)")
     }

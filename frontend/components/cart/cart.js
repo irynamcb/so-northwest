@@ -9,11 +9,12 @@ function Cart() {
     let history = useHistory();
 
     const { items, userId, products, sizes } = useSelector(state => {
-
+debugger
         return {
             items: state.entities.cart.items,
-            // products: state.entitites.products.products,
-            // sizes: state.entities.products.sizes,
+            products: state.entities.products.products,
+            sizes: state.entities.products.products.sizes,
+            colors: state.entities.products.colors,
             userId: state.session.id
         }
     });

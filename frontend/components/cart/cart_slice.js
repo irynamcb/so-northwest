@@ -11,7 +11,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, { payload }) => {
-            // debugger
+            debugger
         if (payload.id in state.items) {
             state.items[payload.id].count += payload.count 
         } else {
