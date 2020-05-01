@@ -34,7 +34,7 @@ function CartItem(props) {
                 <h2><Link to={`/products/${item.id}`}>{item.details}</Link></h2>
                 <h2>{color.toUpperCase()}</h2>
                 <h2>{size.toUpperCase()}</h2>
-                <button className="remove-item">Remove</button>
+                <button className="remove-item" onClick={() => dispatch(removeFromCart({ id: itemId, count: itemCount }))}>Remove</button>
             </div>
             <div className="cart-details">
                 <Counter val={itemCount} callback={onCountChange}/>
