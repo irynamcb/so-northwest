@@ -92,8 +92,8 @@ function Cart() {
                         <td>${(total()*1.1).toFixed(2)}</td>
                     </tr>
                     </tbody>
-                    <button className="checkout">Proceed to checkout</button>
                 </table>
+                <button className="checkout">Proceed to checkout</button>
             </div>
         </div>
     )

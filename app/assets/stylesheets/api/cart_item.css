@@ -1,6 +1,7 @@
 .cart-item {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     transition: all .7s ease-in-out;
     max-height: 800px;
     opacity: 1;
@@ -12,15 +13,16 @@
 }
 
 .cart-image {
-    width: 20vw;
+    max-width: 20vw;
     height: 20vh;
     padding: 1.6rem 0 1.6rem 1.6rem;
     display: block;
 }
 
 .cart-image img {
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
 }
 
 .cart-info {
@@ -31,7 +33,6 @@
     height: 100%;
     overflow-wrap: break-word;
     padding: 1.6rem 0;
-    margin-left: 10px;
 }
 
 .cart-info a:hover {
@@ -101,7 +102,12 @@
 .total-table {
     display: block;
     margin-top: 10px;
-    /* flex-direction: column; */
+    float: right;
+}
+
+.total-table button {
+
+    display: block;
     float: right;
 }
 
