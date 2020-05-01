@@ -14,9 +14,9 @@ function Cart() {
         return {
             items: state.entities.cart.items,
             products: state.entities.products.products,
-            sizes: state.entities.products.products.sizes,
-            colors: state.entities.products.colors,
-            // userId: state.session.id
+            sizes: state.entities.products.sizes,
+            // colors: state.entities.products.colors,
+            // // userId: state.session.id
         }
     });
 // debugger
@@ -30,7 +30,7 @@ function Cart() {
     }
 
     function findPrice(index) {
-        return products.find(p => p.id === index).price
+        return findProduct(index).price
     }
 
     function total() {
@@ -67,7 +67,7 @@ function Cart() {
                 Object.values(items).map(item => <CartItem 
                     key={item.id} 
                     item={findProduct(item.productId)}
-                    size={item.sizeId}
+                    size={sizes[item.sizeId]}
                     count={item.count}
                     color={item.color}
                     />)
