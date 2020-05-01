@@ -83,7 +83,7 @@
     height: 4rem;
 }
 
-.quantity h1 {
+.quantity h1, .cart-details h4 {
     min-width: 2vw;
     text-align: center;
     padding: .5rem;

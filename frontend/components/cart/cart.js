@@ -1,12 +1,12 @@
-import React, { useEffect, useMemo } from 'react';
-import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
 import CartItem from './cart_item';
 
 
 
 function Cart() {
-    const dispatch = useDispatch();
+    
     let history = useHistory();
 
     const { items, userId, products, sizes } = useSelector(state => {
@@ -16,7 +16,7 @@ function Cart() {
             products: state.entities.products.products,
             sizes: state.entities.products.products.sizes,
             colors: state.entities.products.colors,
-            userId: state.session.id
+            // userId: state.session.id
         }
     });
 // debugger
@@ -38,7 +38,7 @@ function Cart() {
         Object.values(items).forEach(item => {
             sum += findPrice(item.productId) * item.count;
         })
-        return sum;
+        return sum.toFixed(2);
     }
 
     let numItems = Object.keys(items).length;
@@ -67,6 +67,7 @@ function Cart() {
                 Object.values(items).map(item => <CartItem 
                     key={item.id} 
                     item={findProduct(item.productId)}
+                    size={item.sizeId}
                     count={item.count}
                     color={item.color}
                     />)

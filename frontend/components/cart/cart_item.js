@@ -4,8 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 
 function CartItem(props) {
 
-    const {item} = props;
-    let history = useHistory();
+    const {item, count, color, size} = props;
 
 
     // if (props === undefined) {
@@ -13,19 +12,21 @@ function CartItem(props) {
     // }
 
     return (
-        <div className="">
-            {/* <div className="">
+        <div className="cart-item">
+            <div className="cart-image">
                 <img src={item.photoUrl} />
             </div>
-            <h1><Link to={`/products/${item.id}`}>{item.description}</Link></h1>
-            <h2><Link to={`/products/${item.id}`}>{item.details}</Link></h2>
-            <h3>{item.color}<h3>
-            <h3>{item.size}</h3>
-            <h4>{item.quantity}</h4>
-            <h5>${item.price}.00</h5>
-            <button>Remove</button>*/}
-            {item.color}
-            {item.count}
+            <div className="cart-info">
+                <h1><Link to={`/products/${item.id}`}>{item.description}</Link></h1>
+                <h2><Link to={`/products/${item.id}`}>{item.details}</Link></h2>
+                <h2>{color.toUpperCase()}</h2>
+                <h2>{size}</h2>
+                <button className="remove-item">Remove</button>
+            </div>
+            <div className="cart-details">
+                <h4>{count}</h4>
+                <h5>${item.price.toFixed(2)}</h5>
+            </div>
         </div>
     )
 }
