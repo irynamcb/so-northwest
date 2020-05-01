@@ -45,7 +45,7 @@ input[type="submit"] {
 
 a:-webkit-any-link {
 	text-decoration: none;
-	color: inherit;
+  color: inherit;
 }
 
 h1:hover, h2:hover, p:hover {
