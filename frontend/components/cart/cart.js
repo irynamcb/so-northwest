@@ -75,25 +75,25 @@ function Cart() {
             <div className="total-table">
                 <table>
                     <tbody>
-                    <tr>
+                    <tr className="tr2">
                         <td>Subtotal</td>
                         <td>${total().toFixed(2)}</td>
                     </tr>
-                    <tr>
+                    <tr className="tr1">
                         <td>Standart shipping</td>
                         <td>FREE</td>
                     </tr>
-                    <tr>
+                    <tr className="tr1">
                         <td>Estimated taxes</td>
                         <td>10%</td>
                     </tr>
-                    <tr>
+                    <tr className="tr2">
                         <td>Order total</td>
-                        <td>${(total() * 1,1).toFixed(2)}</td>
+                        <td>${(total()*1.1).toFixed(2)}</td>
                     </tr>
                     </tbody>
+                    <button className="checkout">Proceed to checkout</button>
                 </table>
-                <button className="checkout">Proceed to checkout</button>
             </div>
         </div>
     )

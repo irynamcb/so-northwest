@@ -1,5 +1,5 @@
 .cart {
-    padding: 20px;
+    padding: 20px 80px 20px 80px;
 }
 
 
@@ -14,7 +14,7 @@
     flex-direction: column;
 }
 
-.ci1 h1, .ci2 h1 {
+.ci1 h1, .ci2 h1, .tr2 {
     font-family: Stuart,Georgia,serif!important;
     font-weight: 500!important;
     text-transform: none!important;

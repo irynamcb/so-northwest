@@ -97,3 +97,24 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.total-table {
+    display: block;
+    margin-top: 10px;
+    /* flex-direction: column; */
+    float: right;
+}
+
+.tr1 {
+    color: #2e2e2e;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 16px;
+    margin-top: 14px;
+}
+
+.total-table table {
+
+  border-spacing: 25px 10px;
+  
+}
