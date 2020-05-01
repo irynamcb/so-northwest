@@ -5,13 +5,13 @@ import {useParams} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import {addToCart} from '../cart/cart_slice';
+import Counter from '../counter/counter';
 
 
 
 function Product() {
+
     const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
     const [count, setCount] = useState(1);
@@ -52,11 +52,6 @@ function Product() {
     let reviewCount = stars.length;
     let starsAvg = (reviewCount === 0) ? 0 : Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
     
-    function decrement() {
-        if (count > 1) {
-            setCount(count - 1)
-        }
-    }
 
     function selectColor(color) {
         setSelectedColor(color)
@@ -123,21 +118,8 @@ function Product() {
                 }
                 </span>
                 Quantity:
-                <div className="quantity">
-                    <FontAwesomeIcon icon={faMinusCircle} 
-                    color="#c5c5c5"
-                    size="lg"
-                    cursor="pointer"
-                    onClick={decrement}
-                    /> 
-                    <h1>{count}</h1>
-                    <FontAwesomeIcon icon={faPlusCircle} 
-                    color="#c5c5c5"
-                    size="lg"
-                    cursor="pointer"
-                    onClick={() => setCount(count + 1)}
-                    />
-                </div>
+
+                <Counter val={count} callback={setCount}/>
                 
                 <button className="add-to-cart" onClick={handleCart} >Add to cart</button>
                 

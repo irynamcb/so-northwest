@@ -38,7 +38,6 @@ function CartItem(props) {
             </div>
             <div className="cart-details">
                 <Counter val={itemCount} callback={onCountChange}/>
-                {/* <h4>{count}</h4> */}
                 <h5>${item.price.toFixed(2)}</h5>
                 <h6>${(count * item.price).toFixed(2)}</h6>
             </div>
