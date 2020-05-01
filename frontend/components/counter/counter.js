@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +16,7 @@ function Counter({val, callback}) {
         setCount(val)
         callback(val)
     }
-// debugger
+
     return (
 
         <div className="quantity">

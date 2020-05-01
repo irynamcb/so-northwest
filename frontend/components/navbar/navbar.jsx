@@ -30,6 +30,7 @@ export default class Navbar extends React.Component {
     personalGreeting() {
         const logo = <FontAwesomeIcon icon={faTree} size="1x" pull="left" inverse transform="shrink-4" />
         const cart = <FontAwesomeIcon icon={faDolly} size="1x" inverse transform="shrink-4" />
+        let numItems = Object.keys(this.props.items).length;
         return (
        
             <div className="navbar">
@@ -37,7 +38,7 @@ export default class Navbar extends React.Component {
                     <Link to="/" className="home">{logo}So_Northwest</Link>
                     <div className="nav-content">
                         <div className="header-name"><Link to='/'>Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}!</Link></div>
-                        <div><Link to="/shoppingCart" className="home">Cart{cart}</Link></div>
+                        <div><Link to="/shoppingCart" className="home">Cart{cart}{numItems}</Link></div>
                         <div className="nav">
                             <button className="header-button" onClick={this.props.logout}>Log Out</button>
                         </div>
