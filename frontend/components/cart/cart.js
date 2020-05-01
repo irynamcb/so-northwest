@@ -36,7 +36,7 @@ function Cart() {
         Object.values(items).forEach(item => {
             sum += findPrice(item.productId) * item.count;
         })
-        return sum.toFixed(2);
+        return sum;
     }
 
     let numItems = Object.keys(items).length;
@@ -52,7 +52,7 @@ function Cart() {
                <h2>{numItems} {numItemstext}</h2>
             </div>
             <div className="ci2">
-                <h1>${total()}</h1>
+                <h1>${total().toFixed(2)}</h1>
                 <h2>Subtotal</h2>
             </div>
             </div>
@@ -75,16 +75,20 @@ function Cart() {
             <div className="total-table">
                 <table>
                     <tbody>
-                    <tr colSpan="2">
+                    <tr>
                         <td>Subtotal</td>
-                        <td>Standart shipping</td>
-                        <td>Estimated taxes</td>
-                        <td>Order total</td>
+                        <td>${total().toFixed(2)}</td>
                     </tr>
                     <tr>
-                        <td>${total()}</td>
+                        <td>Standart shipping</td>
                         <td>FREE</td>
+                    </tr>
+                    <tr>
+                        <td>Estimated taxes</td>
                         <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Order total</td>
                         <td>${(total() * 1,1).toFixed(2)}</td>
                     </tr>
                     </tbody>
