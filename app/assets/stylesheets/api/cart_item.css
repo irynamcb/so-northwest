@@ -79,3 +79,17 @@
      width: 50vw;
      align-items: center;
  }
+
+.cart-details h5 {
+    
+    min-width: 2vw;
+    text-align: center;
+    padding: .5rem;
+    color: #2e2e2e;
+    line-height: 1;
+    font-family: Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    margin-left: 5px;
+    margin-right: 5px;
+}
