@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from "react-router-dom";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import CartItem from './cart_item';
 
 
@@ -9,17 +9,15 @@ function Cart() {
     
     let history = useHistory();
 
-    const { items, userId, products, sizes } = useSelector(state => {
-// debugger
+    const { items, products, sizes } = useSelector(state => {
+
         return {
             items: state.entities.cart.items,
             products: state.entities.products.products,
             sizes: state.entities.products.sizes,
-            // colors: state.entities.products.colors,
-            // // userId: state.session.id
         }
     });
-// debugger
+
     function handleClick(e) {
         e.preventDefault();
         history.push(`/`)
@@ -59,15 +57,16 @@ function Cart() {
             </div>
             </div>
             <div className="ci3">
-            <button onClick={handleClick} className="shopping">Continue shopping</button>
-            <button className="checkout">Proceed to checkout</button>
+                <button onClick={handleClick} className="shopping">Continue shopping</button>
+                <button className="checkout">Proceed to checkout</button>
             </div>
             <div className="cart-items">
                 {
                 Object.values(items).map(item => <CartItem 
-                    key={item.id} 
+                    key={item.id}
+                    itemId={item.id} 
                     item={findProduct(item.productId)}
-                    size={sizes[item.sizeId]}
+                    size={sizes[item.sizeId].size}
                     count={item.count}
                     color={item.color}
                     />)
