@@ -72,6 +72,25 @@ function Cart() {
                     />)
                 }
             </div>
+            <div className="total-table">
+                <table>
+                    <tbody>
+                    <tr colSpan="2">
+                        <td>Subtotal</td>
+                        <td>Standart shipping</td>
+                        <td>Estimated taxes</td>
+                        <td>Order total</td>
+                    </tr>
+                    <tr>
+                        <td>${total()}</td>
+                        <td>FREE</td>
+                        <td>10%</td>
+                        <td>${(total() * 1,1).toFixed(2)}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button className="checkout">Proceed to checkout</button>
+            </div>
         </div>
     )
 
