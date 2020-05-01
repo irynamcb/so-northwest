@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchProduct } from './product_slice';
-import {useParams} from 'react-router-dom';
+import { useParams, useHistory} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
@@ -20,6 +20,7 @@ function Product() {
     const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
+    let history = useHistory();
 
     useEffect(() => {
         dispatch(fetchProduct(productId));
@@ -51,7 +52,7 @@ function Product() {
     let stars = product.reviews.filter(reviewId => reviews[reviewId] !== undefined).map(reviewId => reviews[reviewId].star);
     let reviewCount = stars.length;
     let starsAvg = (reviewCount === 0) ? 0 : Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
-    
+
 
     function selectColor(color) {
         setSelectedColor(color)
@@ -79,9 +80,13 @@ function Product() {
     }
 
     function handleCart() {
+        if (userId !== null) {
         let item = sku(Number(productId), selectedSize, selectedColor, count);  
         dispatch(addToCart(item));
         alert("You have successfully added an item to a cart! All good :)")
+        } else {
+            history.push(`/login`)
+        }
     }
 // debugger
     return (
@@ -120,8 +125,8 @@ function Product() {
                 Quantity:
 
                 <Counter val={count} callback={setCount}/>
-                
-                <button className="add-to-cart" onClick={handleCart} >Add to cart</button>
+
+                <button className="add-to-cart" onClick={handleCart} >Add to Cart</button>
                 
                 {
                     (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>
