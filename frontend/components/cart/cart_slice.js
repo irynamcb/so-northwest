@@ -18,7 +18,11 @@ const cartSlice = createSlice({
             state.items[payload.id] = payload
         }},
         removeFromCart: (state, { payload }) => {
-            
+
+            state.items[payload.id].count -= payload.count
+            if (state.items[payload.id].count === 0) {
+                delete state.items[payload.id] 
+            }
         }
     }
 })
