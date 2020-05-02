@@ -17,6 +17,7 @@ function Product() {
     const [count, setCount] = useState(1);
     const [selectedSize, setSelectedSize] = useState(false);
     const [selectedColor, setSelectedColor] = useState(false);
+    const [hasError, setHasError] = useState(false);
     const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
@@ -66,6 +67,16 @@ function Product() {
         return [num1, num2, num3]
     }
 
+    function checkErrors() {
+        // debugger
+        if (selectedColor === false || selectedSize === false) {
+            setHasError(true);
+            return true;
+        }
+        setHasError(false);
+        return false;
+    }
+
     function sku(productId, selectedSize, selectedColor, count) {
         
         let item = {
@@ -81,9 +92,11 @@ function Product() {
 
     function handleCart() {
         if (userId !== null) {
-        let item = sku(Number(productId), selectedSize, selectedColor, count);  
-        dispatch(addToCart(item));
-        alert("You have successfully added an item to a cart! All good :)")
+            if (!checkErrors()) {
+                let item = sku(Number(productId), selectedSize, selectedColor, count);
+                dispatch(addToCart(item));
+                alert("You have successfully added an item to a cart! All good :)")
+            } 
         } else {
             history.push(`/login`)
         }
@@ -122,6 +135,9 @@ function Product() {
                     Array.from(colorNames).map((name, idx) => <button key={idx} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
                 }
                 </span>
+                {
+                    (hasError) && <div>"Please select a size or/and a color!"</div>
+                }
                 Quantity:
 
                 <Counter val={count} callback={setCount}/>
