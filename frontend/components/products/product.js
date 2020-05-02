@@ -7,6 +7,7 @@ import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
 import {addToCart} from '../cart/cart_slice';
 import Counter from '../counter/counter';
+import {openModal, closeModal} from '../modal/modal_slice';
 
 
 

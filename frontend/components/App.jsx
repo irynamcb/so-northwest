@@ -9,11 +9,10 @@ import Products from '../components/products/products';
 import Product from '../components/products/product';
 import Cart from '../components/cart/cart';
 import Footer from '../components/footer/footer';
-import Modal from './modal/modal';
+
 
 const App = () => (
     <div>
-        <Modal />
         <header>
             <NavbarContainer />
         </header>

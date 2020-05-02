@@ -1,38 +1,31 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
-import { connect } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import { closeModal } from './modal_slice';
 
-function Modal({ modal, closeModal }) {
+
+function Modal() {
+
+    let dispatch = useDispatch;
+    
+    const { modal } = useSelector(state => {
+
+        return {
+            modal: state.modal
+        }
+    });
+
     if (!modal) {
         return null;
     }
-    // let component;
-    // switch (modal) {
-    //     case 'addToCart':
-    //         component = <LoginFormContainer />;
-    //         break;
-    //     default:
-    //         return null;
-    // }
+
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background" onClick={() => dispatch(closeModal)}>X
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {/* {component} */}
+                <h1>Added to cart</h1>
             </div>
         </div>
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        modal: state.modal
-    };
-};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        closeModal: () => dispatch(closeModal())
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default Modal;
