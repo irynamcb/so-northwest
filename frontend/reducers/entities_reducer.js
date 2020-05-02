@@ -8,6 +8,7 @@ const entitiesReducer = combineReducers({
     users: usersReducer,
     products: productsReducer,
     cart: cartReducer
+    
 });
 
 export default entitiesReducer;

@@ -95,7 +95,7 @@ function Product() {
             if (!checkErrors()) {
                 let item = sku(Number(productId), selectedSize, selectedColor, count);
                 dispatch(addToCart(item));
-                alert("You have successfully added an item to a cart! All good :)")
+                // <div>Added to cart</div>
             } 
         } else {
             history.push(`/login`)
@@ -136,7 +136,7 @@ function Product() {
                 }
                 </span>
                 {
-                    (hasError) && <div>"Please select a size or/and a color!"</div>
+                    (hasError) && <div>Please select a size or/and a color!</div>
                 }
                 Quantity:
 
