@@ -17,7 +17,7 @@ function ReviewForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(createReview(form))
+        dispatch(createReview(form)).then(() => clearBody())
     }
 
     function update(field) {
