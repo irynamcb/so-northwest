@@ -21,10 +21,12 @@ return (
         <div className="image">
             <img src={product.photoUrl} />
         </div>
-        <p>Multiple colors availiable</p>
-        <h1><Link to={`/products/${product.id}`}>{product.description}</Link></h1>
-        <h2>{product.details}</h2>
-        <h3>${product.price}.00</h3>
+        <div className="image">
+            <p>Multiple colors availiable</p>
+            <h1><Link to={`/products/${product.id}`}>{product.description}</Link></h1>
+            <h2>{product.details}</h2>
+            <h3>${product.price}.00</h3>
+        </div>
     </div>
 )
 }
