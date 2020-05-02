@@ -10,7 +10,7 @@ function Modal() {
     const { modal } = useSelector(state => {
 
         return {
-            modal: state.modal
+            modal: state.modal.modal
         }
     });
 
@@ -18,10 +18,19 @@ function Modal() {
         return null;
     }
 
+    let text;
+    switch (modal) {
+        case 'addToCart':
+            text = "Added to cart";
+            break;
+        default:
+            return null;
+    }
+
     return (
-        <div className="modal-background" onClick={() => dispatch(closeModal)}>X
+        <div className="modal-background" >
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                <h1>Added to cart</h1>
+                <h1>{text}</h1>
             </div>
         </div>
     );

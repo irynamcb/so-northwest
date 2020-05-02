@@ -10,8 +10,8 @@ const modalSlice = createSlice({
     initialState,
     reducers: {
         openModal: (state, { payload }) => {
-            // return action.modal;
-            state.modal = payload.modal
+            // debugger
+            state.modal = payload
         },
         closeModal: (state, { payload }) => {
             state.modal = null

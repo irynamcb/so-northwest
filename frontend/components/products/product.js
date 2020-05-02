@@ -95,8 +95,8 @@ function Product() {
         if (userId !== null) {
             if (!checkErrors()) {
                 let item = sku(Number(productId), selectedSize, selectedColor, count);
-                dispatch(addToCart(item));
-                // <div>Added to cart</div>
+                dispatch(addToCart(item))
+                dispatch(openModal('addToCart'))
             } 
         } else {
             history.push(`/login`)

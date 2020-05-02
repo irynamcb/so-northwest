@@ -1,11 +1,17 @@
 .modal-background {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  top: 50%;
+  bottom: 50%;
+  left: 55%;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  background-clip: padding-box;
+  outline: 0;
   z-index: 10;
+  width: 25%;
+  height: 25%
 }
 
 .modal-child {
@@ -13,4 +19,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-child h1 {
+
+  font-family: Stuart,Georgia,serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  display: inline-block;
+  vertical-align: middle;
 }
