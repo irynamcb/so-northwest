@@ -119,7 +119,7 @@ function Product() {
                 />&nbsp;{`${starsAvg} | (${reviewCount})`}
                 </span>
                 <h2>${product.price}.00</h2>
-                Size:
+                Size: {(selectedSize) ? sizes[selectedSize].size.toUpperCase() : ""}
                 <span className="size">
                 {
                     product.sizes.map(sizeId => {
@@ -129,7 +129,7 @@ function Product() {
                         )}})
                 }
                 </span>
-                Color:
+                Color: {(selectedColor) ? selectedColor.toUpperCase() : ""}
                 <span className="color">
                 {
                     Array.from(colorNames).map((name, idx) => <button key={idx} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
