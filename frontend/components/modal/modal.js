@@ -7,9 +7,9 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 function Modal() {
 
-    let dispatch = useDispatch;
+    let dispatch = useDispatch();
     const icon = <FontAwesomeIcon icon={faCheckCircle} size="1x" pull="left" inverse transform="shrink-4" style={{color: 'green'}}/>
-    const close = <FontAwesomeIcon icon={faTimesCircle} size="3x" pull="right" inverse transform="shrink-4" style={{ color: 'green' }}/>
+    const close = <FontAwesomeIcon icon={faTimesCircle} size="2x" pull="right" inverse transform="shrink-4" style={{ color: 'green' }}/>
     
     const { modal } = useSelector(state => {
 
@@ -33,7 +33,7 @@ function Modal() {
 
     return (
         <div className="modal-background" >
-            {close}
+            <div onClick={() => dispatch(closeModal())}>{close}</div>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 <h1>{icon} {text}</h1>
                 

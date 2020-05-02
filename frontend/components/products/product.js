@@ -7,7 +7,7 @@ import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
 import {addToCart} from '../cart/cart_slice';
 import Counter from '../counter/counter';
-import {openModal, closeModal} from '../modal/modal_slice';
+import {openModal} from '../modal/modal_slice';
 
 
 
@@ -69,7 +69,7 @@ function Product() {
     }
 
     function checkErrors() {
-        // debugger
+        
         if (selectedColor === false || selectedSize === false) {
             setHasError(true);
             return true;
@@ -95,6 +95,7 @@ function Product() {
         if (userId !== null) {
             if (!checkErrors()) {
                 let item = sku(Number(productId), selectedSize, selectedColor, count);
+                // Q
                 dispatch(addToCart(item))
                 dispatch(openModal('addToCart'))
             } 
