@@ -63,7 +63,7 @@ function Cart() {
             </div>
             <div className="ci3">
                 <button onClick={handleClick} className="shopping">Continue shopping</button>
-                <button onClick={handleProceed} className="checkout">Proceed to checkout</button>
+                <button onClick={handleProceed} disabled={(numItems === 0)} className={(numItems === 0) ? 'dis' : 'checkout'}>Proceed to checkout</button>
             </div>
             <div className="cart-items">
                 {
@@ -98,7 +98,7 @@ function Cart() {
                     </tr>
                     </tbody>
                 </table>
-                <button onClick={handleProceed} className="checkout">Proceed to checkout</button>
+                <button onClick={handleProceed} disabled={(numItems === 0)} className={(numItems === 0) ? 'dis' : 'checkout'}>Proceed to checkout</button>
             </div>
         </div>
     )

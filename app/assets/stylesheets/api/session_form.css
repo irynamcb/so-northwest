@@ -70,9 +70,6 @@
 .create-account, .shopping, .checkout {
     color: #2e2e2e;
     background-color: #fff;
-    border-color: #c5c5c5;
-    border-width: 1px;
-    border-style: solid;
     border-radius: 2px;
     outline: 0;
     font-size: 16px;
@@ -81,6 +78,27 @@
     padding: 16px 32px;
     border: 1px solid #c5c5c5;
     cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    user-select: none;
+    white-space: nowrap;
+    margin-top: 14px;
+}
+
+.dis {
+    color: #fff;
+    background-color: #c5c5c5;
+    border-radius: 2px;
+    outline: 0;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 16px;
+    padding: 16px 32px;
+    cursor: auto;
     display: inline-block;
     margin-bottom: 0;
     text-align: center;
