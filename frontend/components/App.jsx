@@ -19,9 +19,9 @@ const App = () => (
         </header>
         <Switch>
             <Route exact path="/" component={Products} />
-            <Route exact path="/shoppingCart" component={Cart} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/checkout/order-summary" component={Payment} />
+            <ProtectedRoute exact path="/shoppingCart" component={Cart} />
+            <ProtectedRoute exact path="/checkout" component={Checkout} />
+            <ProtectedRoute exact path="/checkout/order-summary" component={Payment} />
             <Route exact path="/products/:productId" component={Product} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
