@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import PaymentForm from './payment_form';
 
 
-function Payment(props) {
+function Payment() {
 
     let history = useHistory();
 
     function handleContinue() {
         event.preventDefault();
+        // need to change later
         history.push(`/`)
     }
     return (
@@ -17,7 +17,7 @@ function Payment(props) {
             <div className="payment-form">
                 <PaymentForm />
                 <div className="next">
-                    <h1>Next...</h1>
+                    <h1>Next, submit your order, you won't be charged yet</h1>
                     <button className="continue" onClick={handleContinue}>Continue</button>
                 </div>
             </div>

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import AddressForm from './address_form';
 
 
-function Checkout(props) {
+function Checkout() {
 
     let history = useHistory();
 
@@ -12,6 +11,7 @@ function Checkout(props) {
         event.preventDefault();
         history.push(`/checkout/order-summary`)
     }
+    
     return (
         <div className="checkout-screen">
             <div className="address-form">
