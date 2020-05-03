@@ -27,8 +27,8 @@ function Review(props) {
                 starRatedColor="#3278ae"
                 starDimension="25px"
                 starSpacing="1px"
-                />
-                <h4>{review.author}</h4>
+                /> 
+                <h4>{review.author}</h4> •
                 <h3>{createdAt}</h3>
             </div>
             <p>{review.body}</p>

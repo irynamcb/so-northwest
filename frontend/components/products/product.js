@@ -95,7 +95,6 @@ function Product() {
         if (userId !== null) {
             if (!checkErrors()) {
                 let item = sku(Number(productId), selectedSize, selectedColor, count);
-                // Q
                 dispatch(addToCart(item))
                 dispatch(openModal('addToCart'))
             } 
@@ -121,7 +120,7 @@ function Product() {
                 />&nbsp;{`${starsAvg} | (${reviewCount})`}
                 </span>
                 <h2>${product.price}.00</h2>
-                Size: {(selectedSize) ? sizes[selectedSize].size.toUpperCase() : ""}
+                Size: {(selectedSize) && sizes[selectedSize].size.toUpperCase()}
                 <span className="size">
                 {
                     product.sizes.map(sizeId => {
@@ -131,7 +130,7 @@ function Product() {
                         )}})
                 }
                 </span>
-                Color: {(selectedColor) ? selectedColor.toUpperCase() : ""}
+                Color: {(selectedColor) && selectedColor.toUpperCase()}
                 <span className="color">
                 {
                     Array.from(colorNames).map((name, idx) => <button key={idx} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
@@ -140,7 +139,7 @@ function Product() {
                 {
                     (hasError) && <div className="error">Please select a size and a color!</div>
                 }
-                Quantity:
+                Quantity
 
                 <Counter val={count} callback={setCount}/>
 
