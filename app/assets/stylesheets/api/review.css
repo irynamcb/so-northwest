@@ -73,7 +73,8 @@
     vertical-align: middle;
     white-space: nowrap;
     height: 2vh;
-    width: 8vw;
+    min-width: 6vw;
+    max-width: 10vw;
     margin-bottom: 10px;
 }
 

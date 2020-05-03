@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { fetchProduct } from './product_slice';
+import { fetchProduct, productsSelector } from './product_slice';
 import { useParams, useHistory} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
@@ -107,7 +107,7 @@ function Product() {
     return (
         
         <div className="sp">
-        <h1>Check out this awesome product:</h1>
+        <h1 className="check-out">Check out this awesome product:</h1>
         <div className="single-product-details">
             <img src={product.photoUrl} />
             <div className="spd">
@@ -138,13 +138,13 @@ function Product() {
                 }
                 </span>
                 {
-                    (hasError) && <div className="error">Please select a size and/or a color!</div>
+                    (hasError) && <div className="error">Please select a size and a color!</div>
                 }
                 Quantity:
 
                 <Counter val={count} callback={setCount}/>
 
-                <button className="add-to-cart" onClick={handleCart} >Add to Cart</button>
+                <button className="add-to-cart" onClick={handleCart} >Add to Cart - ${(count * product.price).toFixed(2)}</button>
                 
                 {
                     (userId !== null) && <button className="write-review" onClick={showReviewForm}>Write a review</button>

@@ -38,7 +38,7 @@ export default class Navbar extends React.Component {
                     <Link to="/" className="home">{logo}So_Northwest</Link>
                     <div className="nav-content">
                         <div className="header-name"><Link to='/'>Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}!</Link></div>
-                        <div><Link to="/shoppingCart" className="home">Cart{cart}{numItems}</Link></div>
+                        <div><Link to="/shoppingCart" className="home">Cart{cart}<span style={{color: 'lime'}}>{numItems}</span></Link></div>
                         <div className="nav">
                             <button className="header-button" onClick={this.props.logout}>Log Out</button>
                         </div>
