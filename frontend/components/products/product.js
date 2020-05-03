@@ -138,7 +138,7 @@ function Product() {
                 }
                 </span>
                 {
-                    (hasError) && <div>Please select a size or/and a color!</div>
+                    (hasError) && <div className="error">Please select a size and/or a color!</div>
                 }
                 Quantity:
 
