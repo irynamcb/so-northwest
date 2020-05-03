@@ -7,21 +7,24 @@ function Checkout() {
 
     let history = useHistory();
 
-    function handleContinue() {
+    function handleContinue(event) {
         event.preventDefault();
-        history.push(`/checkout/order-summary`)
+        if (event.currentTarget.form.reportValidity()) {
+            history.push(`/checkout/order-summary`)
+        }
     }
     
     return (
         <div className="checkout-screen">
+            <form>
             <div className="address-form">
                 <AddressForm />
+            </div>     
             <div className="next">
                 <h1>Next, review your oder and add payment</h1>
                 <button className="continue" onClick={handleContinue}>Continue</button>
             </div>
-            </div>
-           
+            </form>
         </div>
     )
 }
