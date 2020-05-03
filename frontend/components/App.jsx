@@ -4,11 +4,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavbarContainer from '../components/navbar/navbar_container';
 import SignUpFormContainer from '../components/session_form/signup_form_container';
 import LogInFormContainer  from '../components/session_form/login_form_container';
-import About from '../components/about/about';
 import Products from '../components/products/products';
 import Product from '../components/products/product';
 import Cart from '../components/cart/cart';
-import Footer from '../components/footer/footer';
 import Modal from './modal/modal';
 import Checkout from './checkout/checkout';
 import Payment from './checkout/payment';
@@ -20,7 +18,6 @@ const App = () => (
             <NavbarContainer />
         </header>
         <Switch>
-            <Route exact path="/about" component={About} />
             <Route exact path="/" component={Products} />
             <Route exact path="/shoppingCart" component={Cart} />
             <Route exact path="/checkout" component={Checkout} />
@@ -29,9 +26,6 @@ const App = () => (
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
         </Switch>
-        <footer>
-            {/* <Footer /> */}
-        </footer>
     </div>
 );
 
