@@ -11,6 +11,7 @@ import Cart from '../components/cart/cart';
 import Footer from '../components/footer/footer';
 import Modal from './modal/modal';
 import Checkout from './checkout/checkout';
+import Payment from './checkout/payment';
 
 const App = () => (
     <div>
@@ -23,6 +24,7 @@ const App = () => (
             <Route exact path="/" component={Products} />
             <Route exact path="/shoppingCart" component={Cart} />
             <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/checkout/order-summary" component={Payment} />
             <Route exact path="/products/:productId" component={Product} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
