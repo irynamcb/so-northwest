@@ -10,6 +10,7 @@ import Product from '../components/products/product';
 import Cart from '../components/cart/cart';
 import Footer from '../components/footer/footer';
 import Modal from './modal/modal';
+import Checkout from './checkout/checkout';
 
 const App = () => (
     <div>
@@ -21,6 +22,7 @@ const App = () => (
             <Route exact path="/about" component={About} />
             <Route exact path="/" component={Products} />
             <Route exact path="/shoppingCart" component={Cart} />
+            <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/products/:productId" component={Product} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />

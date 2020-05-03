@@ -23,6 +23,11 @@ function Cart() {
         history.push(`/`)
     }
 
+    function handleProceed() {
+        event.preventDefault();
+        history.push(`/checkout`)
+    }
+
     function findProduct(index) {
         return products.find(p => p.id === index)
     }
@@ -58,7 +63,7 @@ function Cart() {
             </div>
             <div className="ci3">
                 <button onClick={handleClick} className="shopping">Continue shopping</button>
-                <button className="checkout">Proceed to checkout</button>
+                <button onClick={handleProceed} className="checkout">Proceed to checkout</button>
             </div>
             <div className="cart-items">
                 {
@@ -93,7 +98,7 @@ function Cart() {
                     </tr>
                     </tbody>
                 </table>
-                <button className="checkout">Proceed to checkout</button>
+                <button onClick={handleProceed} className="checkout">Proceed to checkout</button>
             </div>
         </div>
     )
