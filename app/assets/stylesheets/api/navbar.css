@@ -3,9 +3,9 @@
     height: 20vh;
     background-color: #222;
     color: #fff;
-    font-weight: 700;
-    font-size: 20px;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: Graphik,Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
     background-image: url(https://satchel.rei.com/media/img/footer/trees.svg);
     background-repeat: no-repeat;
     background-size: 40% 40%;
@@ -13,7 +13,7 @@
 
 
 .header-group {
-    width: 70%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -29,4 +29,32 @@
 .signup-btn:hover, .header-button:hover {
     color: green;
     cursor: pointer;
+}
+
+.header-button {
+    color: #426c90;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    outline: 0;
+    font-size: 14px;
+    font-style: normal;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    height: 2vh;
+    min-width: 2vw;
+    max-width: 4vw;
+    margin-top: 5px;
+
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: column;
+    
 }
