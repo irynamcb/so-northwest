@@ -52,19 +52,15 @@
   
 }
 
-.next {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
 
-.next h1 {
+.next {
     font-family: Graphik, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
     line-height: 1.5;
     color: #222;
     margin-bottom: 20px;
     font-weight: 300;
+    margin-top: 20px;
 }
 
 .error {
