@@ -11,6 +11,8 @@ See it live: coming soon...
 * Front-end:
   - React Hooks
   - Redux Toolkit
+  - Material-UI
+  - HTML5
   - CSS3
 * Back-end:
   - Ruby on Rails
