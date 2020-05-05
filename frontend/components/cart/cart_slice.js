@@ -29,7 +29,7 @@ const cartSlice = createSlice({
         receiveCart: (state, {payload}) => {
             
             Object.values(payload.cart).map(cartItem => {
-                let item = sku(cartItem.productId, cartItem.sizeId, cartItem.colorId, cartItem.count)
+                let item = sku(cartItem.productId, cartItem.sizeId, payload.colors[cartItem.colorId].color, cartItem.count)
                 state.items[item.id] = item;
             })
 
