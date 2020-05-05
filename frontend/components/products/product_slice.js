@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, createAction} from '@reduxjs/toolkit';
 import {fetchAllProducts, fetchSingleProduct} from '../../util/products_api_util';
 import {createSingleReview, deleteSingleReview} from '../../util/reviews_api_util';
 
@@ -9,6 +9,8 @@ export const initialState = {
     reviews: {},
     colors: {}
 }
+
+const receiveCart = createAction('receiveCart')
 
 const productSlice = createSlice({
     name: 'products',
@@ -40,13 +42,30 @@ const productSlice = createSlice({
             } 
         },
         removeReview: (state, {payload}) => {
-            // debugger
+            
             let review = Object.values(payload.reviews)[0]
             let i = state.products.findIndex(p => p.id === review.productId)
             if (i !== -1) {
                 state.products[i].reviews.splice(review.id, 1)
             } 
             delete state.reviews[review.id]
+        },
+        extraReducers: {
+            [receiveCart]: (state, action) => {
+                // debugger
+                state.sizes = Object.assign({}, state.sizes, action.payload.sizes)
+                state.colors = Object.assign({}, state.colors, action.payload.colors)
+
+                Object.values(payload.products).map(product => {
+
+                    let i = state.products.findIndex(p => p.id === product.id)
+                    if (i === -1) {
+                        state.products.push(product)
+                    } else {
+                        state.products[i] = product
+                    }
+                }) 
+            }
         }
     }
 })
@@ -55,7 +74,7 @@ export const {
     receiveAllProducts,
     receiveProduct,
     receiveReview,
-    removeReview
+    removeReview,
 
 } = productSlice.actions
 

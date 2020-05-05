@@ -11,7 +11,25 @@ import {openModal} from '../modal/modal_slice';
 
 
 
-function Product() {
+
+export function sku(productId, selectedSize, selectedColor, count) {
+
+    function makeId(num1, num2, num3) {
+        return [num1, num2, num3]
+    }
+
+    let item = {
+        id: makeId(productId, selectedSize, selectedColor),
+        productId: productId,
+        sizeId: selectedSize,
+        color: selectedColor,
+        count: count
+    }
+    return item;
+
+}
+
+    function Product() {
 
     const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
@@ -64,10 +82,6 @@ function Product() {
         setSelectedSize(size)
     }
 
-    function makeId(num1, num2, num3) {
-        return [num1, num2, num3]
-    }
-
     function checkErrors() {
         
         if (selectedColor === false || selectedSize === false) {
@@ -78,18 +92,7 @@ function Product() {
         return false;
     }
 
-    function sku(productId, selectedSize, selectedColor, count) {
-        
-        let item = {
-            id: makeId(productId, selectedSize, selectedColor),
-            productId: productId,
-            sizeId: selectedSize,
-            color: selectedColor,
-            count: count
-        }
-        return item;
-        
-    }
+ 
 
     function handleCart() {
         if (userId !== null) {

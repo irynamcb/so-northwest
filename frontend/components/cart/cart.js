@@ -1,13 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import CartItem from './cart_item';
+import { fetchCart } from './cart_slice';
 
 
 
 function Cart() {
     
     let history = useHistory();
+    let dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCart());
+    }, [dispatch]);
 
     const { items, products, sizes } = useSelector(state => {
 
@@ -17,6 +23,8 @@ function Cart() {
             sizes: state.entities.products.sizes,
         }
     });
+
+
 
     function handleClick(e) {
         e.preventDefault();
