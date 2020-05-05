@@ -36,7 +36,7 @@ const productSlice = createSlice({
             let review = Object.values(payload.reviews)[0]
             let i = state.products.findIndex(p => p.id === review.productId)
             if (i !== -1) {
-                state.products[i].reviews.push(review.id)
+                state.products[i].reviews.unshift(review.id)
             } 
         },
         removeReview: (state, {payload}) => {
