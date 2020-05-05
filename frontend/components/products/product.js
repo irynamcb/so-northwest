@@ -172,6 +172,7 @@ function Product() {
             <div className="reviews">
                 {
                     product.reviews.map((reviewId, idx) => <Review review={reviews[reviewId]} key={idx} currentUserId={userId} />)
+                                    
                 }
             </div>
     </div>
