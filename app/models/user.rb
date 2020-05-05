@@ -12,6 +12,11 @@ attr_reader :password
     foreign_key: :author_id,
     class_name: :Review
 
+  has_many :items_in_the_cart,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :Cart
+
 after_initialize :ensure_session_token
 
 

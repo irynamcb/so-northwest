@@ -12,4 +12,9 @@ primary_key: :id,
 foreign_key: :size_id,
 class_name: :Color
 
+has_many :carts,
+primary_key: :id,
+foreign_key: :size_id,
+class_name: :Cart
+
 end
