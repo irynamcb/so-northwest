@@ -52,18 +52,11 @@ const productSlice = createSlice({
         extraReducers: {
             [receiveCart]: (state, action) => {
                 // debugger
-                state.sizes = Object.assign({}, state.sizes, action.payload.sizes)
-                state.colors = Object.assign({}, state.colors, action.payload.colors)
-
-                Object.values(payload.products).map(product => {
-
-                    let i = state.products.findIndex(p => p.id === product.id)
-                    if (i === -1) {
-                        state.products.push(product)
-                    } else {
-                        state.products[i] = product
-                    }
-                }) 
+                state.sizes = Object.assign({}, state.sizes, action.payload.cart.sizes)
+                state.colors = Object.assign({}, state.colors, action.payload.cart.colors)
+                state.products = Object.assign({}, state.products, action.payload.cart.products)
+                state.skus = Object.assign({}, state.skus, action.payload.cart.skus)
+                
             }
         }
     }
@@ -74,7 +67,7 @@ export const {
     receiveProduct,
     receiveReview,
     removeReview,
-
+    
 } = productSlice.actions
 
 export const productsSelector = state => state.entities.products

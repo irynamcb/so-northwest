@@ -29,4 +29,5 @@ has_many :colors,
 through: :product_skus,
 source: :single_color
 
+
 end

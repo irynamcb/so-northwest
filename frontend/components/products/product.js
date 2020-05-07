@@ -21,6 +21,7 @@ import {openModal} from '../modal/modal_slice';
     const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
+    productId = Number(productId);
     let history = useHistory();
 
     useEffect(() => {
@@ -30,7 +31,7 @@ import {openModal} from '../modal/modal_slice';
 
     const {product, sizes, colors, reviews, userId, skus} = useSelector(state => {
 
-        let product = state.entities.products.products[Number(productId)]
+        let product = state.entities.products.products[productId]
         return {
             product: product,
             sizes: state.entities.products.sizes,
@@ -95,9 +96,9 @@ import {openModal} from '../modal/modal_slice';
 
                 let skuList = Object.values(skus).filter(item => productId === item.productId && selectedSize === sizes[item.sizeId].size)
                 let sku = skuList.find(item => selectedColor === colors[item.colorId].color)
-
+// debugger
                 if (sku === undefined) {
-                    setHasError(true)
+                    alert("Out of stock!")
                     // come back to it!
                     return
                 }

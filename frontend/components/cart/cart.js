@@ -38,9 +38,10 @@ function Cart() {
     }
 
     function total() {
+        // debugger
         let sum = 0;
         Object.values(items).forEach(item => {
-            sum += products[item.productId].price * item.count;
+            sum += products[skus[item.id].productId].price * item.count;
         })
         return sum;
     }
@@ -71,10 +72,10 @@ function Cart() {
                 Object.values(items).map(item => <CartItem 
                     key={item.id}
                     cartItemId={item.id} 
-                    item={products[skus[item.skuId].productId]}
-                    size={sizes[skus[item.skuId].sizeId].size}
+                    item={products[skus[item.id].productId]}
+                    size={sizes[skus[item.id].sizeId].size}
                     count={item.count}
-                    color={colors[skus[item.skuId].colorId].color}
+                    color={colors[skus[item.id].colorId].color}
                     />)
                 }
             </div>

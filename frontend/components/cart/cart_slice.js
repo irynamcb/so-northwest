@@ -26,8 +26,9 @@ const cartSlice = createSlice({
             }
         },
         receiveCart: (state, {payload}) => {
-            
-            state.items = payload
+            // debugger
+            state.items = payload.cart
+
 
         },
     }
