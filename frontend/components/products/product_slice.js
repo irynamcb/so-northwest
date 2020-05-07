@@ -4,10 +4,11 @@ import {createSingleReview, deleteSingleReview} from '../../util/reviews_api_uti
 
 export const initialState = {
     hasErrors: false,
-    products: [],
+    products: {},
     sizes: {},
     reviews: {},
-    colors: {}
+    colors: {},
+    skus: {}
 }
 
 const receiveCart = createAction('receiveCart')
@@ -17,16 +18,14 @@ const productSlice = createSlice({
     initialState,
     reducers: {
         receiveAllProducts: (state, {payload}) => {
-            state.products = Object.values(payload)
+            state.products = payload
         },
         receiveProduct: (state, {payload}) => {
+
             let product = Object.values(payload.products)[0]
-            let i = state.products.findIndex(p => p.id === product.id)
-            if (i === -1) {
-                state.products.push(product)
-            } else  {
-                state.products[i] = product
-            }
+            state.products[product.id] = product
+
+            state.skus = Object.assign({}, state.skus, payload.skus)
             
             state.sizes = Object.assign({}, state.sizes, payload.sizes)
             state.colors = Object.assign({}, state.colors, payload.colors)
