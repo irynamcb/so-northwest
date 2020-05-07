@@ -12,6 +12,9 @@ primary_key: :id,
 foreign_key: :size_id,
 class_name: :Color
 
-
+has_many :size_skus,
+primary_key: :id,
+foreign_key: :size_id,
+class_name: :Sku
 
 end
