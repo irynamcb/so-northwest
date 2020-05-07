@@ -19,21 +19,15 @@ p3 = Product.create(price: 15, description: "Pants", details: "Party in your pan
 
 
 Size.destroy_all
-s1 = Size.create(product_id: p1.id, size: "S")
-s2 = Size.create(product_id: p1.id, size: "M")
-s3 = Size.create(product_id: p1.id, size: "L")
+s1 = Size.create(size: "S")
+s2 = Size.create(size: "M")
+s3 = Size.create(size: "L")
 
-s4 = Size.create(product_id: p2.id, size: "XS")
-s5 = Size.create(product_id: p2.id, size: "L")
-
-s6 = Size.create(product_id: p3.id, size: "S")
-s7 = Size.create(product_id: p3.id, size: "M")
-s8 = Size.create(product_id: p3.id, size: "L")
 
 Color.destroy_all
-c1 = Color.create(count: 20, color: "blue", size_id: s1.id)
-c2 = Color.create(count: 10, color: "red", size_id: s1.id)
-c3 = Color.create(count: 5, color: "black", size_id: s1.id)
+c1 = Color.create(color: "blue")
+c2 = Color.create(color: "red")
+c3 = Color.create(color: "black")
 
 Tag.destroy_all
 t1 = Tag.create(tag: "awesome")
