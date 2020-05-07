@@ -2,7 +2,7 @@ class Api::SizesController < ApplicationController
 
 def index
 
-@sizes = Size.all.includes(:color)
+@sizes = Size.all
 
 if @sizes
   render :index
@@ -15,8 +15,8 @@ end
 
 
 def show
-    @size = Size.includes(:color)
-                .find_by(id: params[:id])
+    @size = Size.find_by(id: params[:id])
+    
 if @size
   render :show
 else
@@ -61,6 +61,6 @@ end
 
 private
 def size_params
-    params.require(:size).permit(:product_id, :size, :color_id)
+    params.require(:size).permit(:size)
 end      
 end

@@ -2,10 +2,8 @@ class Api::ProductsController < ApplicationController
 
 def index
 
-@products = Product.all.includes(:sizes)
-                 .includes(:colors)
-                 .includes(:reviews)
-                 .includes(:reviewers)
+@products = Product.all.includes(:reviews)
+                       .includes(:reviewers)
 
 if @products
   render :index
@@ -18,9 +16,7 @@ end
 
 
 def show
-    @product = Product.includes(:sizes)
-                .includes(:colors)
-                .includes(:reviews)
+    @product = Product.includes(:reviews)
                 .includes(:reviewers)
                 .find_by(id: params[:id])
 if @product

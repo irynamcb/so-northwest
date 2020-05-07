@@ -60,7 +60,7 @@ end
 
 private
 def color_params
-    params.require(:color).permit(:color, :count)
+    params.require(:color).permit(:color)
 end      
 
 end
