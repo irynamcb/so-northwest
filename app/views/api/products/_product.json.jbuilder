@@ -6,3 +6,4 @@ end
 
 json.tags product.tags.map(&:id)
 json.reviews product.reviews.sort{ |x, y| y.created_at <=> x.created_at}.map(&:id)
+json.skus product.product_skus.map(&:id)
