@@ -23,7 +23,7 @@ function Products() {
             </div>
             <h1>Products</h1>
             <div className="product-list">
-                {products.map(product => 
+                {Object.values(products).map(product => 
                 <li key={product.id}><SingleProduct product={product}/></li>)}
             </div>
         </div>

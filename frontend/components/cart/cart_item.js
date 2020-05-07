@@ -8,7 +8,7 @@ function CartItem(props) {
 
     let dispatch = useDispatch();
 
-    const {item, count, color, size, itemId} = props;
+    const { item, count, color, size, cartItemId } = props;
 
     const [itemCount, setItemCount] = useState(count);
 
@@ -17,9 +17,9 @@ function CartItem(props) {
         // val - new value
 
         if (itemCount < val) {
-            dispatch(addToCart({ id: itemId, count: val - itemCount }))
+            dispatch(addToCart({ id: cartItemId, count: val - itemCount }))
         } else {
-            dispatch(removeFromCart({ id: itemId, count: itemCount - val }))
+            dispatch(removeFromCart({ id: cartItemId, count: itemCount - val }))
         }
         setItemCount(val)
     }
@@ -34,7 +34,7 @@ function CartItem(props) {
                 <h2><Link to={`/products/${item.id}`}>{item.details}</Link></h2>
                 <h2>{color.toUpperCase()}</h2>
                 <h2>{size.toUpperCase()}</h2>
-                <button className="remove-item" onClick={() => dispatch(removeFromCart({ id: itemId, count: itemCount }))}>Remove</button>
+                <button className="remove-item" onClick={() => dispatch(removeFromCart({ id: cartItemId, count: itemCount }))}>Remove</button>
             </div>
             <div className="cart-details">
                 <Counter val={itemCount} callback={onCountChange}/>

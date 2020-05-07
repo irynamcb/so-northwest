@@ -10,25 +10,6 @@ import Counter from '../counter/counter';
 import {openModal} from '../modal/modal_slice';
 
 
-
-
-export function sku(productId, selectedSize, selectedColor, count) {
-
-    function makeId(num1, num2, num3) {
-        return [num1, num2, num3]
-    }
-
-    let item = {
-        id: makeId(productId, selectedSize, selectedColor),
-        productId: productId,
-        sizeId: selectedSize,
-        color: selectedColor,
-        count: count
-    }
-    return item;
-
-}
-
     function Product() {
 
     const dispatch = useDispatch();
@@ -47,15 +28,15 @@ export function sku(productId, selectedSize, selectedColor, count) {
     }, [dispatch]);
 
 
-    const {product, sizes, colors, reviews, userId} = useSelector(state => {
+    const {product, sizes, colors, reviews, userId, skus} = useSelector(state => {
 
-        let productIdx = state.entities.products.products.findIndex(product => product.id === Number(productId));
-        let product = state.entities.products.products[productIdx]
+        let product = state.entities.products.products[Number(productId)]
         return {
             product: product,
             sizes: state.entities.products.sizes,
             colors: state.entities.products.colors,
             reviews: state.entities.products.reviews,
+            skus: state.entities.products.skus,
             userId: state.session.id
     }});
 
@@ -64,10 +45,15 @@ export function sku(productId, selectedSize, selectedColor, count) {
     }
 
     let colorNames = new Set();
-    product.sizes.map(sizeId => {
-        if (sizes[sizeId] !== undefined)
-        sizes[sizeId].colors.map(colorId => colorNames.add(colors[colorId].color))
+    let sizeNames = new Set();
+
+    product.skus.map(skuId => {
+        if (skus[skuId] !== undefined) {
+            colorNames.add(colors[skus[skuId].colorId].color)
+            sizeNames.add(sizes[skus[skuId].sizeId].size)
+        }
     });
+
 
     let stars = product.reviews.filter(reviewId => reviews[reviewId] !== undefined).map(reviewId => reviews[reviewId].star);
     let reviewCount = stars.length;
@@ -92,12 +78,31 @@ export function sku(productId, selectedSize, selectedColor, count) {
         return false;
     }
 
- 
+    function makeSku(skuId, count) {
+
+        let item = {
+            id: skuId,
+            count: count
+        }
+        return item;
+
+    }
 
     function handleCart() {
         if (userId !== null) {
             if (!checkErrors()) {
-                let item = sku(Number(productId), selectedSize, selectedColor, count);
+                // selectedSize and selectedColor
+
+                let skuList = Object.values(skus).filter(item => productId === item.productId && selectedSize === sizes[item.sizeId].size)
+                let sku = skuList.find(item => selectedColor === colors[item.colorId].color)
+
+                if (sku === undefined) {
+                    setHasError(true)
+                    // come back to it!
+                    return
+                }
+
+                let item = makeSku(sku.id, count);
                 dispatch(addToCart(item))
                 dispatch(openModal('addToCart'))
             } 
@@ -123,14 +128,10 @@ export function sku(productId, selectedSize, selectedColor, count) {
                 />&nbsp;{`${starsAvg} | (${reviewCount})`}
                 </span>
                 <h2>${product.price}.00</h2>
-                Size: {(selectedSize) && sizes[selectedSize].size.toUpperCase()}
+                Size: {(selectedSize) && selectedSize.toUpperCase()}
                 <span className="size">
                 {
-                    product.sizes.map(sizeId => {
-                    if (sizes[sizeId] !== undefined) {
-                        return (
-                            <button key={sizeId} onClick={() => selectSize(sizeId)} className={(selectedSize === sizeId) ? `sz selected` : 'sz'} >{sizes[sizeId].size}</button>
-                        )}})
+                    Array.from(sizeNames).map((name, idx) => <button key={idx} onClick={() => selectSize(name)} className={(selectedSize === name) ? `sz selected` : 'sz'} >{name}</button>)
                 }
                 </span>
                 Color: {(selectedColor) && selectedColor.toUpperCase()}

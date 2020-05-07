@@ -15,12 +15,14 @@ function Cart() {
         dispatch(fetchCart());
     }, [dispatch]);
 
-    const { items, products, sizes } = useSelector(state => {
+    const { items, products, sizes, colors, skus } = useSelector(state => {
 
         return {
             items: state.entities.cart.items,
             products: state.entities.products.products,
             sizes: state.entities.products.sizes,
+            colors: state.entities.products.colors,
+            skus: state.entities.products.skus
         }
     });
 
@@ -35,18 +37,10 @@ function Cart() {
         history.push(`/checkout`)
     }
 
-    function findProduct(index) {
-        return products.find(p => p.id === index)
-    }
-
-    function findPrice(index) {
-        return findProduct(index).price
-    }
-
     function total() {
         let sum = 0;
         Object.values(items).forEach(item => {
-            sum += findPrice(item.productId) * item.count;
+            sum += products[item.productId].price * item.count;
         })
         return sum;
     }
@@ -76,11 +70,11 @@ function Cart() {
                 {
                 Object.values(items).map(item => <CartItem 
                     key={item.id}
-                    itemId={item.id} 
-                    item={findProduct(item.productId)}
-                    size={sizes[item.sizeId].size}
+                    cartItemId={item.id} 
+                    item={products[skus[item.skuId].productId]}
+                    size={sizes[skus[item.skuId].sizeId].size}
                     count={item.count}
-                    color={item.color}
+                    color={colors[skus[item.skuId].colorId].color}
                     />)
                 }
             </div>

@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCartItems } from '../../util/cart_api_util';
-import { sku } from '../products/product';
 
 
 export const initialState = {
@@ -28,10 +27,7 @@ const cartSlice = createSlice({
         },
         receiveCart: (state, {payload}) => {
             
-            Object.values(payload.cart).map(cartItem => {
-                let item = sku(cartItem.productId, cartItem.sizeId, payload.colors[cartItem.colorId].color, cartItem.count)
-                state.items[item.id] = item;
-            })
+            state.items = payload
 
         },
     }
