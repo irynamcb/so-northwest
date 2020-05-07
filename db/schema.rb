@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_043037) do
+ActiveRecord::Schema.define(version: 2020_05_07_043623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_05_07_043037) do
     t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "size_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -78,11 +77,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_043037) do
   end
 
   create_table "sizes", force: :cascade do |t|
-    t.integer "product_id", null: false
     t.string "size", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_sizes_on_product_id"
   end
 
   create_table "skus", force: :cascade do |t|

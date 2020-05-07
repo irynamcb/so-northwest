@@ -4,14 +4,6 @@ validates :price, :description, :details, presence: true
 
 has_one_attached :photo
 
-has_many :sizes,
-primary_key: :id,
-foreign_key: :product_id,
-class_name: :Size
-
-has_many :colors,
-through: :sizes,
-source: :colors
 
 has_many :reviews,
 primary_key: :id,
