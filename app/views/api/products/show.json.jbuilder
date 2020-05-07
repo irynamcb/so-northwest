@@ -4,22 +4,6 @@ json.products do
   end
 end
 
-json.sizes do 
-    @product.sizes.each do |size|
-        json.set! size.id do
-            json.partial! 'api/sizes/size', size: size
-        end
-    end
-end
-
-json.colors do 
-    @product.colors.each do |color|
-        json.set! color.id do
-            json.partial! 'api/colors/color', color: color
-        end
-    end
-end
-
 json.tags do 
     @product.tags.each do |tag|
         json.set! tag.id do

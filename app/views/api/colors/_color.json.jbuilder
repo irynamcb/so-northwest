@@ -1,1 +1,1 @@
-json.extract! color, :id, :color, :count, :size_id
+json.extract! color, :id, :color
