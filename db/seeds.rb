@@ -38,3 +38,24 @@ Review.destroy_all
 r1 = Review.create(author_id: u1.id, body: "I like it! Looks good on my butt", product_id: p1.id, star: 5)
 r2 = Review.create(author_id: u2.id, body: "Nice shoes yo!", product_id: p2.id, star: 5)
 r3 = Review.create(author_id: u1.id, body: "Party pants!", product_id: p3.id, star: 4)
+
+Sku.destroy_all
+sk1 = Sku.create(product_id: p1.id, color_id: c1.id, size_id: s1.id, count: 20)
+sk2 = Sku.create(product_id: p1.id, color_id: c2.id, size_id: s1.id, count: 15)
+sk3 = Sku.create(product_id: p1.id, color_id: c3.id, size_id: s1.id, count: 10)
+
+sk4 = Sku.create(product_id: p1.id, color_id: c1.id, size_id: s2.id, count: 20)
+sk5 = Sku.create(product_id: p1.id, color_id: c1.id, size_id: s3.id, count: 15)
+sk6 = Sku.create(product_id: p2.id, color_id: c1.id, size_id: s1.id, count: 10)
+
+sk7 = Sku.create(product_id: p3.id, color_id: c1.id, size_id: s1.id, count: 20)
+sk8 = Sku.create(product_id: p3.id, color_id: c1.id, size_id: s2.id, count: 15)
+sk9 = Sku.create(product_id: p3.id, color_id: c1.id, size_id: s3.id, count: 10)
+
+sk10 = Sku.create(product_id: p3.id, color_id: c2.id, size_id: s1.id, count: 20)
+sk11 = Sku.create(product_id: p3.id, color_id: c2.id, size_id: s2.id, count: 15)
+sk12 = Sku.create(product_id: p3.id, color_id: c2.id, size_id: s3.id, count: 10)
+
+sk13 = Sku.create(product_id: p3.id, color_id: c3.id, size_id: s1.id, count: 20)
+sk14 = Sku.create(product_id: p3.id, color_id: c3.id, size_id: s2.id, count: 15)
+sk15 = Sku.create(product_id: p3.id, color_id: c3.id, size_id: s3.id, count: 10)
