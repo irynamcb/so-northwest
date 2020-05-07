@@ -1,0 +1,1 @@
+json.extract! sku, :id, :product_id, :color_id, :size_id, :count
