@@ -24,9 +24,6 @@ source: :author
 
 has_and_belongs_to_many :tags
 
-has_many :carts,
-primary_key: :id,
-foreign_key: :product_id,
-class_name: :Cart
+
 
 end

@@ -25,7 +25,6 @@ function Cart() {
     });
 
 
-
     function handleClick(e) {
         e.preventDefault();
         history.push(`/`)
