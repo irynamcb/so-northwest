@@ -34,6 +34,9 @@ function Modal() {
         case 'addToCart':
             text = "Added to cart";
             break;
+        case 'outOfStock':
+            text = "Item is out of stock!";
+            break;
         default:
             return null;
     }

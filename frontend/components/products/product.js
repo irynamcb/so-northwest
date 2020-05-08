@@ -98,8 +98,7 @@ import {openModal} from '../modal/modal_slice';
                 let sku = skuList.find(item => selectedColor === colors[item.colorId].color)
 // debugger
                 if (sku === undefined) {
-                    alert("Out of stock!")
-                    // come back to it!
+                    dispatch(openModal('outOfStock'))
                     return
                 }
 

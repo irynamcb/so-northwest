@@ -31,7 +31,6 @@ const cartSlice = createSlice({
             // debugger
             state.items = payload.cart
 
-
         },
         extraReducers: {
             [RECEIVE_CURRENT_USER]: (state, action) => {
