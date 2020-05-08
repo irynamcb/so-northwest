@@ -99,7 +99,7 @@ import {openModal} from '../modal/modal_slice';
 // debugger
                 if (sku === undefined) {
                     dispatch(openModal('outOfStock'))
-                    return
+                    return;
                 }
 
                 let item = makeSku(sku.id, count);

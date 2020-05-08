@@ -25,7 +25,7 @@ function Cart() {
             skus: state.entities.products.skus
         }
     });
-
+console.log(items)
 
     function handleClick(e) {
         e.preventDefault();
