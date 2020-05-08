@@ -30,7 +30,7 @@ export default class Navbar extends React.Component {
     personalGreeting() {
         const logo = <FontAwesomeIcon icon={faTree} size="lg" pull="left" inverse transform="shrink-4" />
         const cart = <FontAwesomeIcon icon={faDolly} size="lg" inverse transform="shrink-4" />
-        let numItems = Object.keys(this.props.items).length;
+       
         return (
        
             <div className="navbar">
@@ -38,7 +38,7 @@ export default class Navbar extends React.Component {
                     <Link to="/" className="home">{logo}So_Northwest</Link>
                     <div className="nav-content">
                         <div className="header-name"><Link to='/'>Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}!</Link></div>
-                        <div><Link to="/shoppingCart" className="home">Cart {cart}<span style={{color: 'green'}}>{numItems}</span></Link></div>
+                        <div><Link to="/shoppingCart" className="home">Cart {cart}<span style={{color: 'green'}}>{this.props.items}</span></Link></div>
                         <div><Link to="/" className="home">Purchase history</Link></div>
                         <div className="nav">
                             <button className="header-button" onClick={this.props.logout}>Sign out</button>

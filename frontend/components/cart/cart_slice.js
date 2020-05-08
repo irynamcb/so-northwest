@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
 import { fetchCartItems } from '../../util/cart_api_util';
 
 
@@ -6,6 +6,8 @@ export const initialState = {
     hasErrors: false,
     items: {}
 }
+
+const RECEIVE_CURRENT_USER = createAction('RECEIVE_CURRENT_USER')
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -31,6 +33,11 @@ const cartSlice = createSlice({
 
 
         },
+        extraReducers: {
+            [RECEIVE_CURRENT_USER]: (state, action) => {
+                state.items = action.userCart
+            }
+        }
     }
 })
 

@@ -6,7 +6,7 @@ import Navbar from './navbar';
 const mSTP = ({ session, entities: { users, cart } }, ownProps) => {
     return {
         currentUser: users[session.id],
-        items: cart.items
+        items: Object.keys(cart.items).length
 
     };
 };

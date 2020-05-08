@@ -12,7 +12,7 @@ primary_key: :id,
 foreign_key: :sku_id,
 class_name: :Sku
 
-# has_one?
+
 has_one :cart_product,
 through: :sku,
 source: :single_product
