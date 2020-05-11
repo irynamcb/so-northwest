@@ -12,7 +12,6 @@ export const initialState = {
     skus: {}
 }
 
-const receiveCart = createAction('receiveCart')
 
 export const productSlice = createSlice({
     name: 'products',

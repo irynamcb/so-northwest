@@ -1,6 +1,6 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 import { fetchCartItems } from '../../util/cart_api_util';
-import {productSlice} from '../products/product_slice';
+// import {productSlice} from '../products/product_slice';
 
 
 export const initialState = {
@@ -8,6 +8,7 @@ export const initialState = {
     items: {}
 }
 
+const receiveAllProducts = createAction('receiveAllProducts')
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -34,7 +35,7 @@ export const cartSlice = createSlice({
         },
     },
         extraReducers: {
-            [productSlice.actions.receiveAllProducts ]: (state, action) => {
+            [receiveAllProducts ]: (state, action) => {
             debugger
                 return state.items = action.cart
             }
