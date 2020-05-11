@@ -52,7 +52,7 @@ export const productSlice = createSlice({
     },
         // extraReducers: {
         //     [cartSlice.actions.receiveCart]: (state, action) => {
-        //         // debugger
+        //         debugger
         //         state.sizes = Object.assign({}, state.sizes, action.payload.cart.sizes)
         //         state.colors = Object.assign({}, state.colors, action.payload.cart.colors)
         //         state.products = Object.assign({}, state.products, action.payload.cart.products)

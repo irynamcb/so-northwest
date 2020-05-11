@@ -13,7 +13,7 @@ namespace :api, defaults: {format: :json} do
   resources :colors, only: [:index, :show]
   resources :tags, only: [:index, :show, :create, :update, :destroy]
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
-  resources :carts, only: [:index]
+  resources :carts, only: [:index, :create, :destroy]
 
 end
 
