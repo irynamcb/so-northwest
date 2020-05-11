@@ -13,12 +13,12 @@ export const initialState = {
 
 const receiveCart = createAction('receiveCart')
 
-const productSlice = createSlice({
+export const productSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
         receiveAllProducts: (state, {payload}) => {
-            state.products = payload
+            state.products = payload.products
         },
         receiveProduct: (state, {payload}) => {
 
@@ -77,6 +77,7 @@ export function fetchProducts() {
     return async dispatch => {
         try {
             const response = await fetchAllProducts()
+            // debugger
             dispatch(receiveAllProducts(response))
         } catch (error) {
             console.log(error)
