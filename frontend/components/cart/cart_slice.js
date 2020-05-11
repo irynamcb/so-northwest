@@ -9,36 +9,36 @@ export const initialState = {
 }
 
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
         addToCart: (state, { payload }) => {
-            // debugger
+
         if (payload.id in state.items) {
             state.items[payload.id].count += payload.count 
         } else {
             state.items[payload.id] = payload
         }},
         removeFromCart: (state, { payload }) => {
-// debugger
+
             state.items[payload.id].count -= payload.count
             if (state.items[payload.id].count <= 0) {
                 delete state.items[payload.id] 
             }
         },
         receiveCart: (state, {payload}) => {
-            // debugger
+
             state.items = payload.cart
 
         },
+    },
         extraReducers: {
             [productSlice.actions.receiveAllProducts ]: (state, action) => {
             debugger
                 return state.items = action.cart
             }
         }
-    }
 })
 
 
