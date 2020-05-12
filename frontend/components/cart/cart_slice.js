@@ -1,5 +1,5 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
-import { fetchCartItems } from '../../util/cart_api_util';
+import { fetchCartItems, addCartItem, deleteCartItem } from '../../util/cart_api_util';
 import {productSlice} from '../products/product_slice';
 
 
@@ -59,6 +59,30 @@ export function fetchCart() {
             const response = await fetchCartItems()
       
             dispatch(receiveCart(response))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export function add(cartItem) {
+    return async dispatch => {
+        try {
+            const response = await addCartItem(cartItem)
+
+            dispatch(addToCart(response))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export function remove(cartItemId) {
+    return async dispatch => {
+        try {
+            const response = await deleteCartItem(cartItemId)
+
+            dispatch(removeFromCart(response))
         } catch (error) {
             console.log(error)
         }

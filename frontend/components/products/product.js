@@ -5,7 +5,7 @@ import { useParams, useHistory} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
-import {addToCart} from '../cart/cart_slice';
+import {add} from '../cart/cart_slice';
 import Counter from '../counter/counter';
 import {openModal} from '../modal/modal_slice';
 
@@ -82,7 +82,7 @@ import {openModal} from '../modal/modal_slice';
     function makeSku(skuId, count) {
 
         let item = {
-            id: skuId,
+            skuId: skuId,
             count: count
         }
         return item;
@@ -103,7 +103,7 @@ import {openModal} from '../modal/modal_slice';
                 }
 
                 let item = makeSku(sku.id, count);
-                dispatch(addToCart(item))
+                dispatch(add(item))
                 dispatch(openModal('addToCart'))
             } 
         } else {

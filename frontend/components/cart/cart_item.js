@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import Counter from '../counter/counter';
-import {addToCart , removeFromCart} from './cart_slice';
+import {addToCart , removeFromCart, remove} from './cart_slice';
 
 function CartItem(props) {
 
@@ -34,7 +34,7 @@ function CartItem(props) {
                 <h2><Link to={`/products/${item.id}`}>{item.details}</Link></h2>
                 <h2>{color.toUpperCase()}</h2>
                 <h2>{size.toUpperCase()}</h2>
-                <button className="remove-item" onClick={() => dispatch(removeFromCart({ id: cartItemId, count: itemCount }))}>Remove</button>
+                <button className="remove-item" onClick={() => dispatch(remove({ id: cartItemId}))}>Remove</button>
             </div>
             <div className="cart-details">
                 <Counter val={itemCount} callback={onCountChange}/>
