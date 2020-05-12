@@ -25,7 +25,6 @@ function Cart() {
             skus: state.entities.products.skus
         }
     });
-console.log(items)
 
     function handleClick(e) {
         e.preventDefault();
@@ -41,7 +40,7 @@ console.log(items)
         // debugger
         let sum = 0;
         Object.values(items).forEach(item => {
-            sum += products[skus[item.id].productId].price * item.count;
+            sum += products[skus[item.skuId]?.productId]?.price * item.count;
         })
         return sum;
     }
@@ -72,10 +71,10 @@ console.log(items)
                 Object.values(items).map(item => <CartItem 
                     key={item.id}
                     cartItemId={item.id} 
-                    item={products[skus[item.id].productId]}
-                    size={sizes[skus[item.id].sizeId].size}
+                    item={products[skus[item.skuId]?.productId]}
+                    size={sizes[skus[item.skuId]?.sizeId]?.size}
                     count={item.count}
-                    color={colors[skus[item.id].colorId].color}
+                    color={colors[skus[item.skuId]?.colorId]?.color}
                     />)
                 }
             </div>

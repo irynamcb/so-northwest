@@ -1,7 +1,7 @@
 import {createSlice, createAction} from '@reduxjs/toolkit';
 import {fetchAllProducts, fetchSingleProduct} from '../../util/products_api_util';
 import {createSingleReview, deleteSingleReview} from '../../util/reviews_api_util';
-// import {cartSlice} from '../cart/cart_slice'
+// import {cartSlice} from '../cart/cart_slice';
 
 export const initialState = {
     hasErrors: false,
@@ -12,6 +12,7 @@ export const initialState = {
     skus: {}
 }
 
+const receiveCart = createAction('cart/receiveCart')
 
 export const productSlice = createSlice({
     name: 'products',
@@ -50,16 +51,16 @@ export const productSlice = createSlice({
             delete state.reviews[review.id]
         }
     },
-        // extraReducers: {
-        //     [cartSlice.actions.receiveCart]: (state, action) => {
-        //         debugger
-        //         state.sizes = Object.assign({}, state.sizes, action.payload.cart.sizes)
-        //         state.colors = Object.assign({}, state.colors, action.payload.cart.colors)
-        //         state.products = Object.assign({}, state.products, action.payload.cart.products)
-        //         state.skus = Object.assign({}, state.skus, action.payload.cart.skus)
+        extraReducers: {
+            [receiveCart]: (state, action) => {
+                debugger
+                state.sizes = Object.assign({}, state.sizes, action.payload.sizes)
+                state.colors = Object.assign({}, state.colors, action.payload.colors)
+                state.products = Object.assign({}, state.products, action.payload.products)
+                state.skus = Object.assign({}, state.skus, action.payload.skus)
                 
-        //     }
-        // }
+            }
+        }
     })
 
 export const {

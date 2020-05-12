@@ -18,8 +18,6 @@ end
 
 def create
 
-    # sku = Sku.find_by(product_id: params[:id], color_id: params[:color_id], size_id: params[:size_id])
-
     @cart = Cart.new(user_id: current_user.id, sku_id: cart_params[:sku_id], count: cart_params[:count])
 
     # postman test
