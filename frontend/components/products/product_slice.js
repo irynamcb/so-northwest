@@ -1,7 +1,7 @@
 import {createSlice, createAction} from '@reduxjs/toolkit';
 import {fetchAllProducts, fetchSingleProduct} from '../../util/products_api_util';
 import {createSingleReview, deleteSingleReview} from '../../util/reviews_api_util';
-// import {cartSlice} from '../cart/cart_slice';
+
 
 export const initialState = {
     hasErrors: false,
@@ -19,6 +19,7 @@ export const productSlice = createSlice({
     initialState,
     reducers: {
         receiveAllProducts: (state, {payload}) => {
+        
             state.products = payload.products
         },
         receiveProduct: (state, {payload}) => {

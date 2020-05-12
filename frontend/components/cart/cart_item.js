@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import Counter from '../counter/counter';
-import {addToCart , removeFromCart, remove} from './cart_slice';
+import {addToCart , removeFromCart, remove, update} from './cart_slice';
 
 function CartItem(props) {
 
@@ -13,14 +13,8 @@ function CartItem(props) {
     const [itemCount, setItemCount] = useState(count);
 
     function onCountChange(val) {
-        // itemCount - old value
-        // val - new value
-
-        if (itemCount < val) {
-            dispatch(addToCart({ id: cartItemId, count: val - itemCount }))
-        } else {
-            dispatch(removeFromCart({ id: cartItemId, count: itemCount - val }))
-        }
+  
+        dispatch(update({ id: cartItemId, count: val }))
         setItemCount(val)
     }
 

@@ -1,5 +1,5 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
-import { fetchCartItems, addCartItem, deleteCartItem } from '../../util/cart_api_util';
+import { fetchCartItems, addCartItem, deleteCartItem, updateCartItem } from '../../util/cart_api_util';
 import {productSlice} from '../products/product_slice';
 
 
@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
             
         },
         receiveCart: (state, {payload}) => {
-
+// debugger
             state.items = payload.cart
 
         },
@@ -36,7 +36,11 @@ export const cartSlice = createSlice({
         extraReducers: {
             [productSlice.actions.receiveAllProducts]: (state, action) => {
             // debugger
-                state.items = action.payload.cart
+                if (action.payload.cart === undefined) {
+                    state.ietms = {}
+                } else  {
+                    state.items = action.payload.cart
+                }
             }
         }
 })
@@ -85,6 +89,18 @@ export function remove(cartItemId) {
             const response = await deleteCartItem(cartItemId)
 
             dispatch(removeFromCart(response))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export function update(cartItem) {
+    return async dispatch => {
+        try {
+            const response = await updateCartItem(cartItem)
+
+            dispatch(updateCart(response))
         } catch (error) {
             console.log(error)
         }
