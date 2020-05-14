@@ -38,18 +38,17 @@ const productSlice = createSlice({
             state.reviews = Object.assign({}, state.reviews, payload.reviews)
 
             let review = Object.values(payload.reviews)[0]
-            // let i = state.products.findIndex(p => p.id === review.productId)
-            // if (i !== -1) {
-                state.products[review.productId].reviews.unshift(review.id)
-            // } 
+           
+            state.products[review.productId].reviews.unshift(review.id)
+        
+
         },
         removeReview: (state, {payload}) => {
             
             let review = Object.values(payload.reviews)[0]
-            // let i = state.products.findIndex(p => p.id === review.productId)
-            // if (i !== -1) {
-                state.products[review.productId].reviews.splice(review.id, 1)
-            // } 
+      
+            state.products[review.productId].reviews.splice(review.id, 1)
+
             delete state.reviews[review.id]
         }
     },

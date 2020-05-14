@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import Counter from '../counter/counter';
-import {addToCart , removeFromCart, remove, update} from './cart_slice';
+import {remove, update} from './cart_slice';
 
 function CartItem(props) {
 

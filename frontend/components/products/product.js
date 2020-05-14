@@ -5,7 +5,7 @@ import { useParams, useHistory} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
-import {add} from '../cart/cart_slice';
+import {add, fetchCart} from '../cart/cart_slice';
 import Counter from '../counter/counter';
 import {openModal} from '../modal/modal_slice';
 
@@ -26,6 +26,7 @@ import {openModal} from '../modal/modal_slice';
 
     useEffect(() => {
         dispatch(fetchProduct(productId));
+        dispatch(fetchCart());
     }, [dispatch]);
 
 
@@ -96,7 +97,7 @@ import {openModal} from '../modal/modal_slice';
 
                 let skuList = Object.values(skus).filter(item => productId === item.productId && selectedSize === sizes[item.sizeId].size)
                 let sku = skuList.find(item => selectedColor === colors[item.colorId].color)
-// debugger
+
                 if (sku === undefined) {
                     dispatch(openModal('outOfStock'))
                     return;
