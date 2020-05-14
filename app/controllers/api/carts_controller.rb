@@ -4,9 +4,6 @@ def index
 
     @cart = Cart.where("user_id = ?", current_user.id)
 
-    # test in postman
-    # @cart = Cart.where("user_id = ?", 1)
-
     if @cart
         render :index
     else
@@ -67,9 +64,7 @@ private
   def cart_params
     
     params.require(:cart_item).permit(:sku_id, :count)
-    
-    # test in postman
-    # params.permit(:sku_id, :count)
+
   end   
 
 end

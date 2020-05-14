@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchProduct } from './product_slice';
-import { useParams, useHistory} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
