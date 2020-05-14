@@ -6,10 +6,12 @@ json.products do
   end
 end
 
-json.cart do
-   current_user.items_in_the_cart.each do |item|
-        json.set! item.id do
-            json.partial! 'api/carts/cart', cart: item
-        end
-    end
+if current_user
+  json.cart do
+    current_user.items_in_the_cart.each do |item|
+          json.set! item.id do
+              json.partial! 'api/carts/cart', cart: item
+          end
+      end
+  end
 end
