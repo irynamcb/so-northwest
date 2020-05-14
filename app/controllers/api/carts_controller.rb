@@ -28,9 +28,6 @@ def create
         @cart.count += cart_params[:count].to_i
     end
 
-    # postman test
-    # @cart = Cart.new(user_id: 1, sku_id: 1, count: cart_params[:count])
-
     if @cart.save
       render :show
     else
