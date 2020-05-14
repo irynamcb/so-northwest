@@ -36,11 +36,12 @@ export const productSlice = createSlice({
         receiveReview: (state, {payload}) => {
            
             state.reviews = Object.assign({}, state.reviews, payload.reviews)
+            // debugger
             let review = Object.values(payload.reviews)[0]
-            let i = state.products.findIndex(p => p.id === review.productId)
-            if (i !== -1) {
-                state.products[i].reviews.unshift(review.id)
-            } 
+            // let i = state.products.findIndex(p => p.id === review.productId)
+            // if (i !== -1) {
+                state.products[review.productId].reviews.unshift(review.id)
+            // } 
         },
         removeReview: (state, {payload}) => {
             
