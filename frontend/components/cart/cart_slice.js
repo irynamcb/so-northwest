@@ -1,6 +1,5 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 import { fetchCartItems, addCartItem, deleteCartItem, updateCartItem } from '../../util/cart_api_util';
-import {productSlice} from '../products/product_slice';
 
 
 export const initialState = {
@@ -8,7 +7,9 @@ export const initialState = {
     items: {}
 }
 
-export const cartSlice = createSlice({
+const receiveAllProducts = createAction('products/receiveAllProducts')
+
+const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
@@ -34,14 +35,14 @@ export const cartSlice = createSlice({
         },
     },
         extraReducers: {
-            [productSlice.actions.receiveAllProducts]: (state, action) => {
+            [receiveAllProducts]: (state, action) => {
             // debugger
                 if (action.payload.cart === undefined) {
-                    state.ietms = {}
+                    state.items = {}
                 } else  {
                     state.items = action.payload.cart
                 }
-            }
+            },
         }
 })
 
