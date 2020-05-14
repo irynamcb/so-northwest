@@ -18,7 +18,15 @@ end
 
 def create
 
-    @cart = Cart.new(user_id: current_user.id, sku_id: cart_params[:sku_id], count: cart_params[:count])
+    @cart = Cart.find_by(["user_id = ? and sku_id = ?", current_user.id, cart_params[:sku_id]])
+
+    if !@cart 
+
+        @cart = Cart.new(user_id: current_user.id, sku_id: cart_params[:sku_id], count: cart_params[:count])
+    
+    else
+        @cart.count += cart_params[:count].to_i
+    end
 
     # postman test
     # @cart = Cart.new(user_id: 1, sku_id: 1, count: cart_params[:count])

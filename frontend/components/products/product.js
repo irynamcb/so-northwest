@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { fetchProduct, productsSelector } from './product_slice';
+import { fetchProduct } from './product_slice';
 import { useParams, useHistory} from 'react-router-dom';
 import Review from './review';
 import ReviewForm from './review_form';
 import StarRatings from 'react-star-ratings';
-import {add, fetchCart} from '../cart/cart_slice';
+import { add, fetchCart } from '../cart/cart_slice';
 import Counter from '../counter/counter';
-import {openModal} from '../modal/modal_slice';
+import { openModal } from '../modal/modal_slice';
 
 
     function Product() {
