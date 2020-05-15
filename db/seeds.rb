@@ -8,6 +8,8 @@
 
 # ApplicationRecord.reset_column_information
 
+require 'open-uri'
+
 User.destroy_all
 u1 = User.create(first_name: "Iryna", last_name: "McBride", email: "iryna@gmail.com", city: "Seattle", password: '1234567')
 u2 = User.create(first_name: "Brian", last_name: "Collins", email: "brian@gmail.com", city: "Seattle", password: '1234567')
