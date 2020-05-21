@@ -16,8 +16,16 @@ u2 = User.create(first_name: "Brian", last_name: "Collins", email: "brian@gmail.
 
 Product.destroy_all
 p1 = Product.create(price: 20, description: "Skirt", details: "Good for everything")
+file1 = open('https://active-storage-northwest-seeds.s3-us-west-2.amazonaws.com/skirt.jpeg')
+p1.photo.attach(io: file1, filename: 'skirt.jpeg')
+
 p2 = Product.create(price: 10, description: "Shoes", details: "Happy hiking")
+file2 = open('https://active-storage-northwest-seeds.s3-us-west-2.amazonaws.com/shoes.jpeg')
+p2.photo.attach(io: file2, filename: 'shoes.jpeg')
+
 p3 = Product.create(price: 15, description: "Pants", details: "Party in your pants")
+file3 = open('https://active-storage-northwest-seeds.s3-us-west-2.amazonaws.com/pants.jpeg')
+p3.photo.attach(io: file3, filename: 'pants.jpeg')
 
 
 Size.destroy_all
