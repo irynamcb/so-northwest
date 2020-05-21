@@ -25,7 +25,7 @@ function CartItem(props) {
     return (
         <div className="cart-item">
             <div className="cart-image">
-                {/* <img src={item.photoUrl} /> */}
+                <img src={item.photoUrl} />
             </div>
             <div className="cart-info">
                 <h1><Link to={`/products/${item.id}`}>{item.description}</Link></h1>
