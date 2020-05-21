@@ -27,7 +27,11 @@ const cartSlice = createSlice({
         },
         receiveCart: (state, {payload}) => {
 // debugger
-            state.items = payload.cart
+            if (payload.cart === undefined) {
+                state.items = {}
+            } else {
+                state.items = payload.cart
+            }
 
         },
     },

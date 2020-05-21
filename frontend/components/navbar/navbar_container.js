@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 import Navbar from './navbar';
 
 const mSTP = ({ session, entities: { users, cart } }, ownProps) => {
+    
     return {
         currentUser: users[session.id],
         items: Object.keys(cart.items).length
