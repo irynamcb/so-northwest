@@ -10,6 +10,7 @@ import Cart from '../components/cart/cart';
 import Modal from './modal/modal';
 import Checkout from './checkout/checkout';
 import Payment from './checkout/payment';
+import Page404 from './errors/page404';
 
 const App = () => (
     <div>
@@ -25,6 +26,7 @@ const App = () => (
             <Route exact path="/products/:productId" component={Product} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
+            <Route component={Page404} />
         </Switch>
     </div>
 );
