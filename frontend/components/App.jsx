@@ -11,6 +11,7 @@ import Modal from './modal/modal';
 import Checkout from './checkout/checkout';
 import Payment from './checkout/payment';
 import Page404 from './errors/page404';
+import ErrorHandler from './errors/error_handler';
 
 const App = () => (
     <div>
