@@ -18,16 +18,18 @@ const App = () => (
         <header>
             <NavbarContainer />
         </header>
-        <Switch>
-            <Route exact path="/" component={Products} />
-            <ProtectedRoute exact path="/shoppingCart" component={Cart} />
-            <ProtectedRoute exact path="/checkout" component={Checkout} />
-            <ProtectedRoute exact path="/checkout/order-summary" component={Payment} />
-            <Route exact path="/products/:productId" component={Product} />
-            <AuthRoute exact path="/login" component={LogInFormContainer} />
-            <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
-            <Route component={Page404} />
-        </Switch>
+        <ErrorHandler>
+            <Switch>
+                <Route exact path="/" component={Products} />
+                <ProtectedRoute exact path="/shoppingCart" component={Cart} />
+                <ProtectedRoute exact path="/checkout" component={Checkout} />
+                <ProtectedRoute exact path="/checkout/order-summary" component={Payment} />
+                <Route exact path="/products/:productId" component={Product} />
+                <AuthRoute exact path="/login" component={LogInFormContainer} />
+                <AuthRoute exact path="/yaRegistration" component={SignUpFormContainer} />
+                <Route component={Page404} />
+            </Switch>
+        </ErrorHandler>
     </div>
 );
 
