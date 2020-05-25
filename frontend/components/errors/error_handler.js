@@ -1,11 +1,11 @@
 import React from 'react';
-import { useLoacation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { get } from 'lodash';
 import Page404 from './page404';
 import Page500 from './page500';
 
 const ErrorHandler = ( { children }) => {
-    const location = useLoacation();
+    const location = useLocation();
 
     switch (get(location.state, 'errorStatusCode')) {
         case 404:
@@ -13,7 +13,7 @@ const ErrorHandler = ( { children }) => {
 
         case 500:
             return <Page500 />;
-            
+
         default:
             return children
     }

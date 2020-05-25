@@ -8,6 +8,11 @@ export const fetchAllProducts = () => (
 export const fetchSingleProduct = (productId) => (
     $.ajax({
         url: `/api/products/${productId}`,
-        method: 'GET'
+        method: 'GET',
+        error: function(xhr, status, error) {
+            // console.log(xhr.status)
+            history.replace(history.location.pathname, {errorStatusCode: xhr.status});
+    }
     })
+
 );

@@ -29,7 +29,7 @@ if @product
   render :show
 else
   flash.now[:errors] = ['Nothing found :(']
-  render json: ['Nothing found :('], status: 422
+  render json: ['Nothing found :('], status: 404
 end
 end
 

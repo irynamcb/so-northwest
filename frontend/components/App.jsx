@@ -20,6 +20,7 @@ const App = () => (
             <NavbarContainer />
         </header>
         <ErrorHandler>
+            {/* children for ErrorHandler */}
             <Switch>
                 <Route exact path="/" component={Products} />
                 <ProtectedRoute exact path="/shoppingCart" component={Cart} />
