@@ -90,12 +90,7 @@ export function fetchProducts() {
 export function fetchProduct(productId) {
     return async dispatch => {
         try {
-
             const response = await fetchSingleProduct(productId)
-
-            // const response =  fetchSingleProduct(productId)
-
-            // debugger
             dispatch(receiveProduct(response))
         } catch (error) {
             console.log(error)
