@@ -1,3 +1,6 @@
+import history from './history';
+
+
 export const fetchAllProducts = () => (
     $.ajax({
         url: `/api/products`,
