@@ -23,18 +23,3 @@ json.products do
     end
 end
 
-json.colors do
-    @cart.each do |item|
-        json.set! item.cart_color.id do
-            json.partial! 'api/colors/color', color: item.cart_color
-        end
-    end
-end
-
-json.sizes do
-    @cart.each do |item|
-        json.set! item.cart_size.id do
-            json.partial! 'api/sizes/size', size: item.cart_size
-        end
-    end
-end

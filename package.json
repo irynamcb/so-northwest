@@ -1,5 +1,5 @@
 {
-  "name": "so-northwest",
+  "name": "blinchikiUSA",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -44,13 +44,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irynamcb/so-northwest.git"
+    "url": "git+https://github.com/irynamcb/blinchikiUSA.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/irynamcb/so-northwest/issues"
+    "url": "https://github.com/irynamcb/blinchikiUSA/issues"
   },
-  "homepage": "https://github.com/irynamcb/so-northwest#readme"
+  "homepage": "https://github.com/irynamcb/blinchikiUSA#readme"
 }

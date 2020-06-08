@@ -5,8 +5,6 @@ def index
 @products = Product.all.includes(:reviews)
                        .includes(:reviewers)
                        .includes(:product_skus)
-                       .includes(:sizes)
-                       .includes(:colors)
 
 if @products
   render :index
@@ -22,8 +20,6 @@ def show
     @product = Product.includes(:reviews)
                 .includes(:reviewers)
                 .includes(:product_skus)
-                .includes(:sizes)
-                .includes(:colors)
                 .find_by(id: params[:id])
 if @product
   render :show

@@ -21,13 +21,5 @@ primary_key: :id,
 foreign_key: :product_id,
 class_name: :Sku
 
-has_many :sizes,
-through: :product_skus,
-source: :single_size
-
-has_many :colors,
-through: :product_skus,
-source: :single_color
-
 
 end
