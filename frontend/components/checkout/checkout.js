@@ -79,19 +79,10 @@ function Checkout() {
                                 required
                                 id="address1"
                                 name="address1"
-                                label="Address line 1"
+                                label="Address"
                                 fullWidth
                                 autoComplete="billing address-line1"
                                 inputRef={register}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                id="address2"
-                                name="address2"
-                                label="Address line 2"
-                                fullWidth
-                                autoComplete="billing address-line2"
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>

@@ -12,6 +12,8 @@ import Checkout from './checkout/checkout';
 import Payment from './checkout/payment';
 import Page404 from './errors/page404';
 import ErrorHandler from './errors/error_handler';
+import About from './about/about';
+import Footer from './footer/footer';
 
 
 const App = () => (
@@ -24,6 +26,7 @@ const App = () => (
             {/* children for ErrorHandler */}
             <Switch>
                 <Route exact path="/" component={Products} />
+                <Route exact path="/about" component={About} />
                 <ProtectedRoute exact path="/shoppingCart" component={Cart} />
                 <ProtectedRoute exact path="/checkout" component={Checkout} />
                 <ProtectedRoute exact path="/checkout/order-summary" component={Payment} />

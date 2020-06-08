@@ -86,8 +86,9 @@ function Cart() {
                         <td>${total().toFixed(2)}</td>
                     </tr>
                     <tr className="tr1">
-                        <td>Standart shipping</td>
-                        <td>FREE</td>
+                        <td>Shipping</td>
+                        <td>Please keep in mind that we do not do delivery.
+                        Choose a date and a market location where you would like to pick up your order, upon checkout.</td>
                     </tr>
                     <tr className="tr1">
                         <td>Estimated taxes</td>

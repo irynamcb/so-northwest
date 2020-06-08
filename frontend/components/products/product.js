@@ -15,9 +15,6 @@ import { openModal } from '../modal/modal_slice';
     const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
     const [count, setCount] = useState(1);
-    const [selectedSize, setSelectedSize] = useState(false);
-    const [selectedColor, setSelectedColor] = useState(false);
-    const [hasError, setHasError] = useState(false);
     const showReviewForm = () => setShowForm(showForm => !showForm);
 
     let {productId} = useParams();
@@ -30,13 +27,11 @@ import { openModal } from '../modal/modal_slice';
     }, [dispatch]);
 
 
-    const {product, sizes, colors, reviews, userId, skus} = useSelector(state => {
+    const {product, reviews, userId, skus} = useSelector(state => {
 
         let product = state.entities.products.products[productId]
         return {
             product: product,
-            sizes: state.entities.products.sizes,
-            colors: state.entities.products.colors,
             reviews: state.entities.products.reviews,
             skus: state.entities.products.skus,
             userId: state.session.id
@@ -46,39 +41,18 @@ import { openModal } from '../modal/modal_slice';
         return (<div></div>)
     }
 
-    let colorNames = new Set();
-    let sizeNames = new Set();
-
-    product.skus.map(skuId => {
-        if (skus[skuId] !== undefined) {
-            colorNames.add(colors[skus[skuId].colorId].color)
-            sizeNames.add(sizes[skus[skuId].sizeId].size)
-        }
-    });
+    // product.skus.map(skuId => {
+    //     if (skus[skuId] !== undefined) {
+    //         colorNames.add(colors[skus[skuId].colorId].color)
+    //         sizeNames.add(sizes[skus[skuId].sizeId].size)
+    //     }
+    // });
 
 
     let stars = product.reviews.filter(reviewId => reviews[reviewId] !== undefined).map(reviewId => reviews[reviewId].star);
     let reviewCount = stars.length;
     let starsAvg = (reviewCount === 0) ? 0 : Number((stars.reduce((a, b) => a + b, 0) / reviewCount).toFixed(2));
 
-
-    function selectColor(color) {
-        setSelectedColor(color)
-    }
-
-    function selectSize(size) {
-        setSelectedSize(size)
-    }
-
-    function checkErrors() {
-        
-        if (selectedColor === false || selectedSize === false) {
-            setHasError(true);
-            return true;
-        }
-        setHasError(false);
-        return false;
-    }
 
     function makeSku(skuId, count) {
 
@@ -92,11 +66,11 @@ import { openModal } from '../modal/modal_slice';
 
     function handleCart() {
         if (userId !== null) {
-            if (!checkErrors()) {
-                // selectedSize and selectedColor
+           
+                // let skuList = Object.values(skus).filter(item => productId === item.productId)
+                // let sku = skuList.find(item => selectedColor === colors[item.colorId].color)
 
-                let skuList = Object.values(skus).filter(item => productId === item.productId && selectedSize === sizes[item.sizeId].size)
-                let sku = skuList.find(item => selectedColor === colors[item.colorId].color)
+                let sku = Object.values(skus).filter(item => productId === item.productId)
 
                 if (sku === undefined) {
                     dispatch(openModal('outOfStock'))
@@ -106,7 +80,7 @@ import { openModal } from '../modal/modal_slice';
                 let item = makeSku(sku.id, count);
                 dispatch(add(item))
                 dispatch(openModal('addToCart'))
-            } 
+            
         } else {
             history.push(`/login`)
         }
@@ -115,9 +89,8 @@ import { openModal } from '../modal/modal_slice';
     return (
         
         <div className="sp">
-        <h1 className="check-out">Check out this awesome product:</h1>
         <div className="single-product-details">
-            <img src={product.photoUrl} />
+            {/* <img src={product.photoUrl} /> */}
             <div className="spd">
                 <h1>{product.description}</h1>
                 <span className="stars-info">
@@ -129,21 +102,9 @@ import { openModal } from '../modal/modal_slice';
                 />&nbsp;{`${starsAvg} | (${reviewCount})`}
                 </span>
                 <h2>${product.price}.00</h2>
-                Size: {(selectedSize) && selectedSize.toUpperCase()}
-                <span className="size">
-                {
-                    Array.from(sizeNames).map((name, idx) => <button key={idx} onClick={() => selectSize(name)} className={(selectedSize === name) ? `sz selected` : 'sz'} >{name}</button>)
-                }
-                </span>
-                Color: {(selectedColor) && selectedColor.toUpperCase()}
-                <span className="color">
-                {
-                    Array.from(colorNames).map((name, idx) => <button key={idx} onClick={() => selectColor(name)} className={(selectedColor === name) ? `${name} selected` : name}>{name}</button>)
-                }
-                </span>
-                {
-                    (hasError) && <div className="error">Please select a size and a color!</div>
-                }
+                <h2>{product.details}</h2>
+                <h2>Please keep in mind that we do not do delivery. Choose a date and a market location where you would like to pick up your order, upon checkout</h2>
+                <h2>Category: Savory</h2>
                 Quantity
 
                 <Counter val={count} callback={setCount}/>
