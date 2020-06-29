@@ -26,7 +26,7 @@ import { openModal } from '../modal/modal_slice';
         dispatch(fetchCart());
     }, [dispatch]);
 
-
+// 
     const {product, reviews, userId, skus} = useSelector(state => {
 
         let product = state.entities.products.products[productId]
